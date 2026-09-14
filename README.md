@@ -2,6 +2,12 @@
 
 Demo web interactiva (sin backend) sobre **economía de agentes**, **caché KV/prompt**, **compresión de trayectorias** y **capa de control** (AGENTS.md).
 
+## Explorar
+
+**Demo live:** https://estebanleonelruiz.github.io/harness-lab/
+
+**Repo:** https://github.com/EstebanLeonelRuiz/harness-lab
+
 > **Importante:** las métricas de las demos son **ejemplo / ilustrativas** tomadas de papers (p. ej. TraceLab ~59% prefijo, Bash All You Need 19–72% menos tokens, ahorros de caché 41–80%). **No** están medidas sobre tus repositorios.
 
 ## Cómo correr
