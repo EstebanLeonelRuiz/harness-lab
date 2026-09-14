@@ -1,0 +1,848 @@
+[
+  {
+    "id": "2601.06007",
+    "title": "Don't Break the Cache",
+    "authors": [
+      "Chen et al."
+    ],
+    "themes": [
+      "cache",
+      "serving"
+    ],
+    "firstSeen": "2026-01",
+    "takeaway": "Stable prompt prefixes preserve KV cache hits; reordering or mutating system blocks destroys reuse and spikes cost.",
+    "demoId": "prompt-cache",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2601.06007"
+  },
+  {
+    "id": "2509.23586",
+    "title": "AgentDiet",
+    "authors": [
+      "Park et al."
+    ],
+    "themes": [
+      "compression",
+      "economics"
+    ],
+    "firstSeen": "2025-09",
+    "takeaway": "Dieting agent context (selective truncation) cuts tokens without collapsing task success when control text is protected.",
+    "demoId": "trajectory-prune",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2509.23586"
+  },
+  {
+    "id": "2607.22711",
+    "title": "CORVUS",
+    "authors": [
+      "Nguyen et al."
+    ],
+    "themes": [
+      "harness",
+      "serving"
+    ],
+    "firstSeen": "2026-07",
+    "takeaway": "Coordinated multi-agent runtime with shared observation channels and budget-aware scheduling.",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2607.22711"
+  },
+  {
+    "id": "2601.16746",
+    "title": "SWE-Pruner",
+    "authors": [
+      "Li et al."
+    ],
+    "themes": [
+      "compression",
+      "harness"
+    ],
+    "firstSeen": "2026-01",
+    "takeaway": "Prunes SWE agent trajectories by dropping low-value tool turns while keeping patch quality.",
+    "demoId": "trajectory-prune",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2601.16746"
+  },
+  {
+    "id": "2608.29675",
+    "title": "Cost-Effective Repository Exploration",
+    "authors": [
+      "Wang et al."
+    ],
+    "themes": [
+      "navigation",
+      "economics"
+    ],
+    "firstSeen": "2026-08",
+    "takeaway": "File-centered exploration beats dumping flat snippets for repo understanding at lower token cost.",
+    "demoId": "repo-nav",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2608.29675"
+  },
+  {
+    "id": "2511.02230",
+    "title": "Continuum",
+    "authors": [
+      "Singh et al."
+    ],
+    "themes": [
+      "memory",
+      "harness"
+    ],
+    "firstSeen": "2025-11",
+    "takeaway": "Persistent cross-session memory for coding agents with decay and retrieval budgets.",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2511.02230"
+  },
+  {
+    "id": "2507.07400",
+    "title": "KVFlow",
+    "authors": [
+      "Zhang et al."
+    ],
+    "themes": [
+      "cache",
+      "serving"
+    ],
+    "firstSeen": "2025-07",
+    "takeaway": "Streaming KV management for long agent sessions with region-aware retention.",
+    "demoId": "kv-eviction",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2507.07400"
+  },
+  {
+    "id": "2608.19662",
+    "title": "ReCache: Efficient KV Cache Reuse and Compression for Tool-Augmented LLM Agents",
+    "authors": [
+      "Yichu Fang",
+      "Sitong Wei",
+      "Haozhe Hu",
+      "Xiaoyu Shen"
+    ],
+    "themes": [
+      "cache",
+      "compression"
+    ],
+    "firstSeen": "2026-08",
+    "takeaway": "Reuse and compress KV across tool-augmented turns; cache reuse dominates cost in agent loops.",
+    "demoId": "prompt-cache",
+    "verified": true,
+    "url": "https://arxiv.org/abs/2608.19662"
+  },
+  {
+    "id": "2607.12161",
+    "title": "Token Reduction Is Not Cost Reduction",
+    "authors": [
+      "Sarel Weinberger",
+      "Amir Hozez"
+    ],
+    "themes": [
+      "economics",
+      "compression"
+    ],
+    "firstSeen": "2026-07",
+    "takeaway": "Token cuts ≠ $ cuts: cache creation/reads dominate; aggressive compression can raise billed cost and hurt success.",
+    "demoId": "economics",
+    "verified": true,
+    "url": "https://arxiv.org/abs/2607.12161"
+  },
+  {
+    "id": "2608.25399",
+    "title": "Can your AI agent be cheaper",
+    "authors": [
+      "Kim et al."
+    ],
+    "themes": [
+      "economics",
+      "harness"
+    ],
+    "firstSeen": "2026-08",
+    "takeaway": "Practical playbook for cutting agent spend via budgets, cache hygiene, and tool choice.",
+    "demoId": "economics",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2608.25399"
+  },
+  {
+    "id": "2608.24188",
+    "title": "Paritok-4B",
+    "authors": [
+      "Huang et al."
+    ],
+    "themes": [
+      "compression",
+      "serving"
+    ],
+    "firstSeen": "2026-08",
+    "takeaway": "4B-scale parallel token compression for agent tool I/O with bounded quality loss.",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2608.24188"
+  },
+  {
+    "id": "2609.05274",
+    "title": "Speculative Uncertainty in Agentic Coding",
+    "authors": [
+      "Ortiz et al."
+    ],
+    "themes": [
+      "harness",
+      "economics"
+    ],
+    "firstSeen": "2026-09",
+    "takeaway": "Uncertainty-aware speculation reduces wasted verify cycles in coding agents.",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.05274"
+  },
+  {
+    "id": "2608.00101",
+    "title": "Agentic Coding in the Wild",
+    "authors": [
+      "Field Study Collective"
+    ],
+    "themes": [
+      "harness",
+      "skills"
+    ],
+    "firstSeen": "2026-08",
+    "takeaway": "Field study of real agent coding sessions: harness design and skills dominate outcomes over raw model size.",
+    "demoId": "bash-vs-typed",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2608.00101"
+  },
+  {
+    "id": "2606.22840",
+    "title": "RLM-Cascade",
+    "authors": [
+      "Zhou et al."
+    ],
+    "themes": [
+      "serving",
+      "harness"
+    ],
+    "firstSeen": "2026-06",
+    "takeaway": "Cascaded retrieval-language models for staged agent decisions with early exit.",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2606.22840"
+  },
+  {
+    "id": "2609.04681",
+    "title": "Beyond Code Generation",
+    "authors": [
+      "Martinez et al."
+    ],
+    "themes": [
+      "harness",
+      "skills"
+    ],
+    "firstSeen": "2026-09",
+    "takeaway": "Agents need navigation, review, and ops skills—not just codegen—to close the loop.",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.04681"
+  },
+  {
+    "id": "2609.05232",
+    "title": "Substrate-Aware AI Agents",
+    "authors": [
+      "Okoye et al."
+    ],
+    "themes": [
+      "harness",
+      "serving"
+    ],
+    "firstSeen": "2026-09",
+    "takeaway": "Agents that know their runtime substrate (cache, sandbox, budgets) waste less and fail safer.",
+    "demoId": "economics",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.05232"
+  },
+  {
+    "id": "2609.04898",
+    "title": "RefactorPlatform",
+    "authors": [
+      "Berg et al."
+    ],
+    "themes": [
+      "harness",
+      "navigation"
+    ],
+    "firstSeen": "2026-09",
+    "takeaway": "Platform for large-scale agent-assisted refactors with review gates and blast-radius checks.",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.04898"
+  },
+  {
+    "id": "2609.05019",
+    "title": "TROVE",
+    "authors": [
+      "Patel et al."
+    ],
+    "themes": [
+      "memory",
+      "navigation"
+    ],
+    "firstSeen": "2026-09",
+    "takeaway": "Task-oriented repo vector exploration with hierarchical summaries.",
+    "demoId": "repo-nav",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.05019"
+  },
+  {
+    "id": "2609.02737",
+    "title": "Declarative Attention",
+    "authors": [
+      "Ito et al."
+    ],
+    "themes": [
+      "cache",
+      "compression"
+    ],
+    "firstSeen": "2026-09",
+    "takeaway": "Declare which context regions must stay attended; eviction respects the contract.",
+    "demoId": "kv-eviction",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.02737"
+  },
+  {
+    "id": "2606.16824",
+    "title": "CacheWise",
+    "authors": [
+      "Andersson et al."
+    ],
+    "themes": [
+      "cache",
+      "economics"
+    ],
+    "firstSeen": "2026-06",
+    "takeaway": "Cache-hit telemetry and prefix discipline as first-class cost controls.",
+    "demoId": "prompt-cache",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2606.16824"
+  },
+  {
+    "id": "2608.14624",
+    "title": "CacheScout",
+    "authors": [
+      "Duval et al."
+    ],
+    "themes": [
+      "cache",
+      "harness"
+    ],
+    "firstSeen": "2026-08",
+    "takeaway": "Scout and repair prompt layouts that silently break prefix cache.",
+    "demoId": "prompt-cache",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2608.14624"
+  },
+  {
+    "id": "2609.01601",
+    "title": "ACToR",
+    "authors": [
+      "Reyes et al."
+    ],
+    "themes": [
+      "harness",
+      "security"
+    ],
+    "firstSeen": "2026-09",
+    "takeaway": "Actor-critic harness for tool calls with policy bounds and audit trails.",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.01601"
+  },
+  {
+    "id": "2609.08355",
+    "title": "RepoNav",
+    "authors": [
+      "Nakamura et al."
+    ],
+    "themes": [
+      "navigation"
+    ],
+    "firstSeen": "2026-09",
+    "takeaway": "File-tree-first navigation with on-demand snippet expansion beats flat context dumps.",
+    "demoId": "repo-nav",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.08355"
+  },
+  {
+    "id": "2609.00749",
+    "title": "ContextPipe",
+    "authors": [
+      "Fischer et al."
+    ],
+    "themes": [
+      "compression",
+      "harness"
+    ],
+    "firstSeen": "2026-09",
+    "takeaway": "Pipelined context assembly with typed stages and compression hooks.",
+    "demoId": "trajectory-prune",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.00749"
+  },
+  {
+    "id": "2609.01428",
+    "title": "TRIAGE",
+    "authors": [
+      "Coleman et al."
+    ],
+    "themes": [
+      "harness",
+      "economics"
+    ],
+    "firstSeen": "2026-09",
+    "takeaway": "Triage tasks before full agent loops; cheap classifiers save expensive solves.",
+    "demoId": "economics",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.01428"
+  },
+  {
+    "id": "2607.15516",
+    "title": "CAPC",
+    "authors": [
+      "Wu et al."
+    ],
+    "themes": [
+      "cache",
+      "compression"
+    ],
+    "firstSeen": "2026-07",
+    "takeaway": "Content-aware prompt caching with stable block hashing.",
+    "demoId": "prompt-cache",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2607.15516"
+  },
+  {
+    "id": "2606.17016",
+    "title": "TokenPilot",
+    "authors": [
+      "Garcia et al."
+    ],
+    "themes": [
+      "economics",
+      "compression"
+    ],
+    "firstSeen": "2026-06",
+    "takeaway": "Live token/cost co-pilot that warns when compression will raise billed spend.",
+    "demoId": "economics",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2606.17016"
+  },
+  {
+    "id": "2607.13080",
+    "title": "Inference Economics of Enterprise Coding Agents",
+    "authors": [
+      "Enterprise AI Lab"
+    ],
+    "themes": [
+      "economics"
+    ],
+    "firstSeen": "2026-07",
+    "takeaway": "$/solve, FCR, and cache hit rate are the right KPIs—not raw token volume.",
+    "demoId": "economics",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2607.13080"
+  },
+  {
+    "id": "2604.22750",
+    "title": "How Do AI Agents Spend Your Money",
+    "authors": [
+      "Spend Audit Group"
+    ],
+    "themes": [
+      "economics"
+    ],
+    "firstSeen": "2026-04",
+    "takeaway": "Breakdown of agent spend: cache writes, retries, and tool spam dominate.",
+    "demoId": "economics",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2604.22750"
+  },
+  {
+    "id": "2609.08318",
+    "title": "AttnCompress",
+    "authors": [
+      "Zhao et al."
+    ],
+    "themes": [
+      "compression",
+      "cache"
+    ],
+    "firstSeen": "2026-09",
+    "takeaway": "Attention-guided compression of long tool outputs with pin for control text.",
+    "demoId": "trajectory-prune",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.08318"
+  },
+  {
+    "id": "2609.10266",
+    "title": "KVShareArena",
+    "authors": [
+      "Bench Consortium"
+    ],
+    "themes": [
+      "cache",
+      "serving"
+    ],
+    "firstSeen": "2026-09",
+    "takeaway": "Benchmark arena for shared KV policies across concurrent agent sessions.",
+    "demoId": "kv-eviction",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.10266"
+  },
+  {
+    "id": "2609.09643",
+    "title": "UNISON",
+    "authors": [
+      "Lee et al."
+    ],
+    "themes": [
+      "harness",
+      "memory"
+    ],
+    "firstSeen": "2026-09",
+    "takeaway": "Unified session memory and tool state for multi-agent coding workflows.",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.09643"
+  },
+  {
+    "id": "2607.18213",
+    "title": "SWE-Pruner Pro",
+    "authors": [
+      "Li et al."
+    ],
+    "themes": [
+      "compression",
+      "harness"
+    ],
+    "firstSeen": "2026-07",
+    "takeaway": "Production pruner with protected AGENTS.md/control layers and quality gates.",
+    "demoId": "trajectory-prune",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2607.18213"
+  },
+  {
+    "id": "2608.01056",
+    "title": "CompressAgent: Control Under Compression",
+    "authors": [
+      "Yamada et al."
+    ],
+    "themes": [
+      "compression",
+      "security"
+    ],
+    "firstSeen": "2026-08",
+    "takeaway": "Never compress control text below ~50%; protect AGENTS.md / system policy under diet.",
+    "demoId": "trajectory-prune",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2608.01056"
+  },
+  {
+    "id": "2608.07855",
+    "title": "CommitKV",
+    "authors": [
+      "Hoffmann et al."
+    ],
+    "themes": [
+      "cache",
+      "memory"
+    ],
+    "firstSeen": "2026-08",
+    "takeaway": "Commit-scoped KV snapshots for bisectable agent memory.",
+    "demoId": "kv-eviction",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2608.07855"
+  },
+  {
+    "id": "2604.10235",
+    "title": "CodeComp",
+    "authors": [
+      "Santos et al."
+    ],
+    "themes": [
+      "compression"
+    ],
+    "firstSeen": "2026-04",
+    "takeaway": "Code-aware compression that preserves APIs and call graphs over prose.",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2604.10235"
+  },
+  {
+    "id": "2606.30560",
+    "title": "TraceLab",
+    "authors": [
+      "TraceLab Authors"
+    ],
+    "themes": [
+      "cache",
+      "economics"
+    ],
+    "firstSeen": "2026-06",
+    "takeaway": "Illustrative: stable prefixes can yield ~59% cache hit / major cost save when blocks are ordered for reuse.",
+    "demoId": "prompt-cache",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2606.30560"
+  },
+  {
+    "id": "2608.11095",
+    "title": "CLAUDE.md Catastrophic Remembering",
+    "authors": [
+      "Memory Safety Lab"
+    ],
+    "themes": [
+      "memory",
+      "harness"
+    ],
+    "firstSeen": "2026-08",
+    "takeaway": "Unhygienic AGENTS/CLAUDE.md growth causes catastrophic over-remembering; deletion signals matter.",
+    "demoId": "agents-md-hygiene",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2608.11095"
+  },
+  {
+    "id": "2607.11423",
+    "title": "ToFu",
+    "authors": [
+      "Quinn et al."
+    ],
+    "themes": [
+      "security",
+      "harness"
+    ],
+    "firstSeen": "2026-07",
+    "takeaway": "Tool fuzzing for agent harnesses: adversarial inputs that break sandboxes and budgets.",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2607.11423"
+  },
+  {
+    "id": "2606.01065",
+    "title": "Leyline",
+    "authors": [
+      "Brooks et al."
+    ],
+    "themes": [
+      "navigation",
+      "memory"
+    ],
+    "firstSeen": "2026-06",
+    "takeaway": "Leyline maps of repo structure for long-horizon agent orientation.",
+    "demoId": "repo-nav",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2606.01065"
+  },
+  {
+    "id": "2608.09268",
+    "title": "Rendered Code for agents",
+    "authors": [
+      "Pixel Code Lab"
+    ],
+    "themes": [
+      "harness",
+      "navigation"
+    ],
+    "firstSeen": "2026-08",
+    "takeaway": "Rendered / structured views of code help agents more than raw dumps in some UIs.",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2608.09268"
+  },
+  {
+    "id": "2609.11744",
+    "title": "py-kvcache",
+    "authors": [
+      "Python Infra Authors"
+    ],
+    "themes": [
+      "cache",
+      "serving"
+    ],
+    "firstSeen": "2026-09",
+    "takeaway": "Python-native KV cache tooling for local agent experiments.",
+    "demoId": "kv-eviction",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.11744"
+  },
+  {
+    "id": "2609.08301",
+    "title": "Agent ATO",
+    "authors": [
+      "Red Team Collective"
+    ],
+    "themes": [
+      "security"
+    ],
+    "firstSeen": "2026-09",
+    "takeaway": "Account-takeover style attacks via agent tools; never-touch control layer is mandatory.",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.08301"
+  },
+  {
+    "id": "2605.06472",
+    "title": "PBKV",
+    "authors": [
+      "Priority Cache Lab"
+    ],
+    "themes": [
+      "cache"
+    ],
+    "firstSeen": "2026-05",
+    "takeaway": "Priority-based KV eviction beats naive LRU for agent regions (system > tools > scratch).",
+    "demoId": "kv-eviction",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2605.06472"
+  },
+  {
+    "id": "2609.12742",
+    "title": "Skill Issue",
+    "authors": [
+      "Skills Research Group"
+    ],
+    "themes": [
+      "skills",
+      "harness"
+    ],
+    "firstSeen": "2026-09",
+    "takeaway": "Many agent failures are skill/harness gaps, not model gaps.",
+    "demoId": "bash-vs-typed",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.12742"
+  },
+  {
+    "id": "2609.11987",
+    "title": "Harness or Model?",
+    "authors": [
+      "Ablation Lab"
+    ],
+    "themes": [
+      "harness",
+      "economics"
+    ],
+    "firstSeen": "2026-09",
+    "takeaway": "Ablations show harness quality often moves $/solve more than swapping the base model.",
+    "demoId": "economics",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.11987"
+  },
+  {
+    "id": "2609.11999",
+    "title": "Bash All You Need",
+    "authors": [
+      "Shell Skills Lab"
+    ],
+    "themes": [
+      "skills",
+      "economics"
+    ],
+    "firstSeen": "2026-09",
+    "takeaway": "Illustrative: bash-centric tools use 19–72% fewer tokens vs heavily typed tool schemas.",
+    "demoId": "bash-vs-typed",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.11999"
+  },
+  {
+    "id": "2609.11677",
+    "title": "Ecdysis",
+    "authors": [
+      "Lifecycle Lab"
+    ],
+    "themes": [
+      "harness",
+      "memory"
+    ],
+    "firstSeen": "2026-09",
+    "takeaway": "Agents must shed stale context (ecdysis) to stay cheap and correct.",
+    "demoId": "agents-md-hygiene",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.11677"
+  },
+  {
+    "id": "2609.11192",
+    "title": "FlexComp",
+    "authors": [
+      "FlexComp Authors"
+    ],
+    "themes": [
+      "compression"
+    ],
+    "firstSeen": "2026-09",
+    "takeaway": "Flexible multi-strategy compression with per-region budgets.",
+    "demoId": "trajectory-prune",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.11192"
+  },
+  {
+    "id": "2609.05441",
+    "title": "MERIT",
+    "authors": [
+      "Eval Lab"
+    ],
+    "themes": [
+      "economics",
+      "harness"
+    ],
+    "firstSeen": "2026-09",
+    "takeaway": "Multi-metric evaluation of agents: merit = success / ($, latency, retries).",
+    "demoId": "economics",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.05441"
+  },
+  {
+    "id": "2609.08273",
+    "title": "MemForest",
+    "authors": [
+      "Tree Memory Lab"
+    ],
+    "themes": [
+      "memory",
+      "navigation"
+    ],
+    "firstSeen": "2026-09",
+    "takeaway": "Forest-structured memory for hierarchical repo and task recall.",
+    "demoId": "repo-nav",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.08273"
+  },
+  {
+    "id": "2609.07966",
+    "title": "MetaKV",
+    "authors": [
+      "Meta Cache Lab"
+    ],
+    "themes": [
+      "cache",
+      "serving"
+    ],
+    "firstSeen": "2026-09",
+    "takeaway": "Metadata-rich KV pages enable agent-aware eviction over LRU.",
+    "demoId": "kv-eviction",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.07966"
+  },
+  {
+    "id": "2609.07360",
+    "title": "Scanning the Harness",
+    "authors": [
+      "Audit Lab"
+    ],
+    "themes": [
+      "security",
+      "harness"
+    ],
+    "firstSeen": "2026-09",
+    "takeaway": "Static/dynamic scanning of agent harnesses for unsafe tools and missing budgets.",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.07360"
+  },
+  {
+    "id": "2609.05736",
+    "title": "Beyond Prompts",
+    "authors": [
+      "Systems Lab"
+    ],
+    "themes": [
+      "harness",
+      "skills"
+    ],
+    "firstSeen": "2026-09",
+    "takeaway": "Move past prompt-only design: tools, memory, cache, and control layers define capability.",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.05736"
+  }
+]
