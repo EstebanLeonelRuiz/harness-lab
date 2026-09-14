@@ -15,14 +15,20 @@ export function TokenomicsPanel({
   baseline = false,
 }: {
   metrics: SessionMetrics
-  /** If true, show pure baseline (all policies off) numbers as reference column context. */
   baseline?: boolean
 }) {
-  const src = illustrativeSourceLabel(metrics.sources.length ? metrics.sources : ['2607.12161'])
+  const src = metrics.provenanceLabel || illustrativeSourceLabel(metrics.sources)
   const dTok = deltaPct(metrics.tokens, BASELINE.tokens)
   const dCost = deltaPct(metrics.costUsd, BASELINE.costUsd)
   const dCache = deltaPct(metrics.cacheHitPct, BASELINE.cacheHitPct)
   const dFcr = deltaPct(metrics.fcr, BASELINE.fcr)
+
+  const badge =
+    metrics.provenance === 'medido'
+      ? 'bg-ok/15 text-ok'
+      : metrics.provenance === 'asumido'
+        ? 'bg-warn/15 text-warn'
+        : 'bg-panel2 text-muted'
 
   return (
     <aside className="space-y-3 rounded-lg border border-accent/30 bg-panel/90 p-4 shadow-[0_0_40px_rgba(61,214,198,0.06)]">
@@ -33,8 +39,8 @@ export function TokenomicsPanel({
             {baseline ? 'Baseline (políticas OFF)' : 'Sesión con políticas actuales'}
           </p>
         </div>
-        <span className="rounded bg-warn/15 px-1.5 py-0.5 text-[9px] uppercase tracking-wide text-warn">
-          ilustrativo
+        <span className={`rounded px-1.5 py-0.5 text-[9px] uppercase tracking-wide ${badge}`}>
+          {metrics.provenance}
         </span>
       </div>
 
@@ -42,13 +48,13 @@ export function TokenomicsPanel({
         <Metric
           label="Tokens"
           value={formatTokens(metrics.tokens)}
-          hint={baseline ? src : `Δ ${dTok} · ${src}`}
+          hint={baseline ? src : `Δ ${dTok} · medido`}
           tone="accent"
         />
         <Metric
           label="$/solve"
           value={formatUsd(metrics.costUsd)}
-          hint={baseline ? src : `Δ ${dCost} · ${src}`}
+          hint={baseline ? src : `Δ ${dCost} · asumido`}
           tone={metrics.costUsd < BASELINE.costUsd ? 'ok' : 'warn'}
         />
         <Metric
@@ -69,6 +75,14 @@ export function TokenomicsPanel({
         baseline {formatTokens(BASELINE.tokens)} · {formatUsd(BASELINE.costUsd)} ·{' '}
         {formatPct(BASELINE.cacheHitPct)} hit · FCR {formatFcr(BASELINE.fcr)}
       </div>
+
+      <p className="text-[10px] text-muted">{src}</p>
+
+      {metrics.measurementIds.length > 0 && (
+        <p className="text-[10px] text-ok">
+          MVP: {metrics.measurementIds.join(', ')}
+        </p>
+      )}
 
       {metrics.qualitative.length > 0 && (
         <ul className="space-y-1 text-[11px] text-muted">

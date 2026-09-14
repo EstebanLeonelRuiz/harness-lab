@@ -1,0 +1,23 @@
+[
+  {
+    "user": "Fix the failing test in tests/loop.test.ts related to cache prefix stability.",
+    "toolResults": [
+      {"tool": "read_file", "path": "tests/loop.test.ts", "content": "expect(prefixA).toEqual(prefixB); // FAIL: interleaved dynamic block"},
+      {"tool": "grep", "pattern": "stablePrefix", "hits": ["src/cache/prefix.ts:12", "src/agent/loop.ts:44"]}
+    ]
+  },
+  {
+    "user": "Apply the fix and re-run tests.",
+    "toolResults": [
+      {"tool": "edit_file", "path": "src/agent/loop.ts", "summary": "Moved dynamic tool results after stable prefix"},
+      {"tool": "run_tests", "filter": "loop", "passed": true}
+    ]
+  },
+  {
+    "user": "Summarize what changed for the PR description.",
+    "toolResults": [
+      {"tool": "git_status", "output": "M src/agent/loop.ts\nM tests/loop.test.ts"},
+      {"tool": "read_file", "path": "src/cache/prefix.ts", "content": "export function stablePrefix(parts) { /* keep system+tools+map first */ }"}
+    ]
+  }
+]

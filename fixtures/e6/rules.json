@@ -1,0 +1,202 @@
+[
+  {
+    "id": "R01",
+    "text": "Rule 1: When editing module M1, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R02",
+    "text": "Rule 2: When editing module M2, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R03",
+    "text": "Rule 3: When editing module M3, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": "obsolete when feature F3 ships"
+  },
+  {
+    "id": "R04",
+    "text": "Rule 4: When editing module M4, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R05",
+    "text": "Rule 5: When editing module M5, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R06",
+    "text": "Rule 6: When editing module M6, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": "obsolete when feature F6 ships"
+  },
+  {
+    "id": "R07",
+    "text": "Rule 7: When editing module M0, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R08",
+    "text": "Rule 8: When editing module M1, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R09",
+    "text": "Rule 9: When editing module M2, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": "obsolete when feature F9 ships"
+  },
+  {
+    "id": "R10",
+    "text": "Rule 10: When editing module M3, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R11",
+    "text": "Rule 11: When editing module M4, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R12",
+    "text": "Rule 12: When editing module M5, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": "obsolete when feature F12 ships"
+  },
+  {
+    "id": "R13",
+    "text": "Rule 13: When editing module M6, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R14",
+    "text": "Rule 14: When editing module M0, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R15",
+    "text": "Rule 15: When editing module M1, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": "obsolete when feature F15 ships"
+  },
+  {
+    "id": "R16",
+    "text": "Rule 16: When editing module M2, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R17",
+    "text": "Rule 17: When editing module M3, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R18",
+    "text": "Rule 18: When editing module M4, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": "obsolete when feature F18 ships"
+  },
+  {
+    "id": "R19",
+    "text": "Rule 19: When editing module M5, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R20",
+    "text": "Rule 20: When editing module M6, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R21",
+    "text": "Rule 21: When editing module M0, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": "obsolete when feature F21 ships"
+  },
+  {
+    "id": "R22",
+    "text": "Rule 22: When editing module M1, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R23",
+    "text": "Rule 23: When editing module M2, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R24",
+    "text": "Rule 24: When editing module M3, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": "obsolete when feature F24 ships"
+  },
+  {
+    "id": "R25",
+    "text": "Rule 25: When editing module M4, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R26",
+    "text": "Rule 26: When editing module M5, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R27",
+    "text": "Rule 27: When editing module M6, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": "obsolete when feature F27 ships"
+  },
+  {
+    "id": "R28",
+    "text": "Rule 28: When editing module M0, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R29",
+    "text": "Rule 29: When editing module M1, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R30",
+    "text": "Rule 30: When editing module M2, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": "obsolete when feature F30 ships"
+  },
+  {
+    "id": "R31",
+    "text": "Rule 31: When editing module M3, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R32",
+    "text": "Rule 32: When editing module M4, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R33",
+    "text": "Rule 33: When editing module M5, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": "obsolete when feature F33 ships"
+  },
+  {
+    "id": "R34",
+    "text": "Rule 34: When editing module M6, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R35",
+    "text": "Rule 35: When editing module M0, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R36",
+    "text": "Rule 36: When editing module M1, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": "obsolete when feature F36 ships"
+  },
+  {
+    "id": "R37",
+    "text": "Rule 37: When editing module M2, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R38",
+    "text": "Rule 38: When editing module M3, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  },
+  {
+    "id": "R39",
+    "text": "Rule 39: When editing module M4, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": "obsolete when feature F39 ships"
+  },
+  {
+    "id": "R40",
+    "text": "Rule 40: When editing module M5, always run the related unit tests and update AGENTS.md only if the control contract changed.",
+    "deletion_signal": null
+  }
+]

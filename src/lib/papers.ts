@@ -1,6 +1,7 @@
 import raw from '../data/papers.json'
 import type { Paper, Theme, DemoId } from '../types'
 import { allLabPaperIds } from '../data/labStages'
+import { getMeasurements, measuredLabel, assumedPriceLabel } from './costModel'
 
 export const papers = raw as Paper[]
 
@@ -61,10 +62,18 @@ export function verifiedCount(): number {
   return papers.filter((p) => p.verified).length
 }
 
-/** UI label for any illustrative number tied to paper sources. */
+/** Paper citation for *why* we measure (not the numeric provenance). */
 export function illustrativeSourceLabel(ids: string[]): string {
-  if (!ids.length) return 'ilustrativo'
+  if (!ids.length) return 'cualitativo'
   const shown = ids.slice(0, 3).join(', ')
   const more = ids.length > 3 ? ` +${ids.length - 3}` : ''
-  return `ilustrativo · fuente arXiv:${shown}${more}`
+  return `por qué medimos · arXiv:${shown}${more}`
+}
+
+export function policyProvenanceLabel(policyId: string): string {
+  const effects = getMeasurements().policyEffects as Record<string, { expId?: string }>
+  const e = effects[policyId]
+  if (e?.expId === 'E8') return assumedPriceLabel()
+  if (e?.expId) return measuredLabel(e.expId)
+  return 'cualitativo'
 }

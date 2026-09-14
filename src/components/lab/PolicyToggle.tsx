@@ -1,6 +1,7 @@
 import type { LabPolicy } from '../../types'
 import { PaperChip } from '../PaperChip'
-import { paperById, illustrativeSourceLabel } from '../../lib/papers'
+import { paperById, illustrativeSourceLabel, policyProvenanceLabel } from '../../lib/papers'
+import { getMeasurements } from '../../lib/costModel'
 
 export function PolicyToggle({
   policy,
@@ -11,17 +12,43 @@ export function PolicyToggle({
   on: boolean
   onChange: (id: string, next: boolean) => void
 }) {
-  const effectHint =
-    policy.effect.kind === 'numeric'
+  const measured = (getMeasurements().policyEffects as Record<
+    string,
+    {
+      expId?: string
+      tokenMult?: number
+      costMult?: number
+      cacheHitDelta?: number
+      fcrDelta?: number
+    }
+  >)[policy.id]
+
+  const effectHint = measured
+    ? [
+        measured.tokenMult != null && `tok×${measured.tokenMult}`,
+        measured.costMult != null && `$×${measured.costMult}`,
+        measured.cacheHitDelta != null &&
+          `cache${measured.cacheHitDelta > 0 ? '+' : ''}${measured.cacheHitDelta}pp`,
+        measured.fcrDelta != null &&
+          `fcr${measured.fcrDelta > 0 ? '+' : ''}${(measured.fcrDelta * 100).toFixed(0)}pp`,
+        measured.expId && `MVP ${measured.expId}`,
+      ]
+        .filter(Boolean)
+        .join(' · ')
+    : policy.effect.kind === 'numeric'
       ? [
           policy.effect.tokenMult != null && `tok×${policy.effect.tokenMult}`,
           policy.effect.costMult != null && `$×${policy.effect.costMult}`,
-          policy.effect.cacheHitDelta != null && `cache${policy.effect.cacheHitDelta > 0 ? '+' : ''}${policy.effect.cacheHitDelta}pp`,
-          policy.effect.fcrDelta != null && `fcr${policy.effect.fcrDelta > 0 ? '+' : ''}${(policy.effect.fcrDelta * 100).toFixed(0)}pp`,
+          policy.effect.cacheHitDelta != null &&
+            `cache${policy.effect.cacheHitDelta > 0 ? '+' : ''}${policy.effect.cacheHitDelta}pp`,
+          policy.effect.fcrDelta != null &&
+            `fcr${policy.effect.fcrDelta > 0 ? '+' : ''}${(policy.effect.fcrDelta * 100).toFixed(0)}pp`,
         ]
           .filter(Boolean)
           .join(' · ')
       : 'cualitativo'
+
+  const prov = policyProvenanceLabel(policy.id)
 
   return (
     <label
@@ -42,8 +69,10 @@ export function PolicyToggle({
             <span className="font-mono text-[10px] text-muted">{effectHint}</span>
           </div>
           <p className="mt-1 text-xs text-muted">{policy.description}</p>
-          <p className="mt-1 text-[10px] text-warn/90">
-            {illustrativeSourceLabel(policy.effect.sourceIds)}
+          <p className={`mt-1 text-[10px] ${measured ? 'text-ok' : 'text-muted'}`}>
+            {prov}
+            {' · '}
+            {illustrativeSourceLabel(policy.paperIds)}
           </p>
         </div>
       </div>

@@ -1,0 +1,12 @@
+{
+  "seed": 42,
+  "steps": 200,
+  "capacityPages": 14,
+  "prefixPages": 8,
+  "toolResultPages": 50,
+  "prefixAccessWeight": 0.45,
+  "algorithm": {
+    "lru": "Evict least-recently-used unpinned page when over capacity.",
+    "tool_commit_aware": "Tool-result pages are pinned from allocation until a synthetic 'observation commit' event; only then become eligible for LRU eviction (CommitKV-inspired)."
+  }
+}

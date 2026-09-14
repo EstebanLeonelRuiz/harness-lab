@@ -1,16 +1,14 @@
 import { LAB_STAGES } from '../data/labStages'
+import measurements from '../data/measurements.json'
 import type { LabPolicy, PolicyEffect } from '../types'
 
 /**
- * Simple illustrative cost model (NOT measured on user repos).
+ * Cost model preferring **measured** MVP deltas from `measurements.json`.
  *
- * Baseline: a "messy" coding-agent session — unstable prompt prefix, typed-tool
- * bloat, flat repo dump, no trajectory prune, LRU KV, optimize-tokens-not-$.
- *
- * Each enabled policy applies multipliers/deltas taken from paper-reported
- * ranges when available (see PolicyEffect.sourceIds). When a paper only gives
- * qualitative guidance, the policy is marked qualitative and does not invent
- * precision.
+ * Provenance labels:
+ * - medido · MVP {expId} · {timestamp}  — token/structural/sim metrics from npm run measure
+ * - asumido (precio lista)              — E8 list-price proxy (NOT API bills)
+ * - cualitativo                         — papers without a local measurement yet
  *
  * Composition (KISS):
  *   tokens  = BASE_TOKENS * Π tokenMult
@@ -19,11 +17,8 @@ import type { LabPolicy, PolicyEffect } from '../types'
  *   cost    = BASE_COST * Π costMult * (tokens/BASE_TOKENS)^0.6 * cacheFactor
  *   latency = BASE_LATENCY * Π latencyMult
  *
- * cacheFactor: higher hit rate reduces effective $ (cached tokens cheaper).
- * The 0.6 exponent reflects that $ is sublinear in tokens once cache/serving
- * dominate (Token Reduction Is Not Cost Reduction — arXiv:2607.12161).
- *
- * All UI numbers MUST be labeled: "ilustrativo · fuente arXiv:ID".
+ * Measured policyEffects from experiments override labStages numeric multipliers
+ * when present. Paper ids remain citations for *why* we measure.
  */
 
 export const BASELINE = {
@@ -36,16 +31,56 @@ export const BASELINE = {
 
 export type PolicyState = Record<string, boolean>
 
+export type MetricProvenance = 'medido' | 'asumido' | 'cualitativo'
+
 export interface SessionMetrics {
   tokens: number
   costUsd: number
   cacheHitPct: number
   fcr: number
   latencyRel: number
-  /** Paper ids that contributed numeric effects. */
+  /** Paper ids that contributed effects. */
   sources: string[]
+  /** Measurement experiment ids that contributed. */
+  measurementIds: string[]
   /** Qualitative notes from enabled policies. */
   qualitative: { note: string; sourceIds: string[] }[]
+  /** How the dominant numeric stack was sourced. */
+  provenance: MetricProvenance
+  provenanceLabel: string
+}
+
+type MeasuredEffect = {
+  kind: 'measured'
+  expId: string
+  tokenMult?: number
+  costMult?: number
+  cacheHitDelta?: number
+  fcrDelta?: number
+  latencyMult?: number
+  citation?: string
+  [k: string]: unknown
+}
+
+const measured = measurements as {
+  generatedAt: string
+  encoding: string
+  provenanceLabel: string
+  assumptions: Record<string, unknown>
+  experiments: Record<string, Record<string, unknown>>
+  policyEffects: Record<string, MeasuredEffect>
+}
+
+export function getMeasurements() {
+  return measured
+}
+
+export function measuredLabel(expId: string): string {
+  return `medido · MVP ${expId} · ${measured.generatedAt}`
+}
+
+export function assumedPriceLabel(): string {
+  return `asumido (precio lista) · MVP E8 · ${measured.generatedAt}`
 }
 
 export function defaultPolicyState(): PolicyState {
@@ -66,23 +101,16 @@ function clamp(n: number, lo: number, hi: number): number {
   return Math.min(hi, Math.max(lo, n))
 }
 
-function applyNumeric(
-  acc: {
-    tokenMult: number
-    costMult: number
-    cacheHit: number
-    fcr: number
-    latencyMult: number
-    sources: Set<string>
-  },
-  effect: Extract<PolicyEffect, { kind: 'numeric' }>,
-): void {
-  if (effect.tokenMult != null) acc.tokenMult *= effect.tokenMult
-  if (effect.costMult != null) acc.costMult *= effect.costMult
-  if (effect.cacheHitDelta != null) acc.cacheHit += effect.cacheHitDelta
-  if (effect.fcrDelta != null) acc.fcr += effect.fcrDelta
-  if (effect.latencyMult != null) acc.latencyMult *= effect.latencyMult
-  for (const id of effect.sourceIds) acc.sources.add(id)
+function resolveEffect(policy: LabPolicy): {
+  effect: PolicyEffect | MeasuredEffect
+  fromMeasurement: boolean
+  expId?: string
+} {
+  const m = measured.policyEffects[policy.id]
+  if (m && m.kind === 'measured') {
+    return { effect: m, fromMeasurement: true, expId: m.expId }
+  }
+  return { effect: policy.effect, fromMeasurement: false }
 }
 
 export function evaluateSession(state: PolicyState): SessionMetrics {
@@ -93,16 +121,40 @@ export function evaluateSession(state: PolicyState): SessionMetrics {
     fcr: BASELINE.fcr,
     latencyMult: 1,
     sources: new Set<string>(),
+    measurementIds: new Set<string>(),
   }
   const qualitative: SessionMetrics['qualitative'] = []
+  let usedMeasured = false
+  let usedAssumed = false
 
   for (const p of allPolicies()) {
     if (!state[p.id]) continue
-    if (p.effect.kind === 'numeric') {
-      applyNumeric(acc, p.effect)
-    } else {
-      qualitative.push({ note: p.effect.note, sourceIds: p.effect.sourceIds })
-      for (const id of p.effect.sourceIds) acc.sources.add(id)
+    const { effect, fromMeasurement, expId } = resolveEffect(p)
+
+    if (fromMeasurement && expId) {
+      usedMeasured = true
+      acc.measurementIds.add(expId)
+      if (expId === 'E8') usedAssumed = true
+      const m = effect as MeasuredEffect
+      if (m.tokenMult != null) acc.tokenMult *= m.tokenMult
+      if (m.costMult != null) acc.costMult *= m.costMult
+      if (m.cacheHitDelta != null) acc.cacheHit += m.cacheHitDelta
+      if (m.fcrDelta != null) acc.fcr += m.fcrDelta
+      if (m.latencyMult != null) acc.latencyMult *= m.latencyMult
+      for (const id of p.paperIds) acc.sources.add(id)
+      continue
+    }
+
+    if (effect.kind === 'numeric') {
+      if (effect.tokenMult != null) acc.tokenMult *= effect.tokenMult
+      if (effect.costMult != null) acc.costMult *= effect.costMult
+      if (effect.cacheHitDelta != null) acc.cacheHit += effect.cacheHitDelta
+      if (effect.fcrDelta != null) acc.fcr += effect.fcrDelta
+      if (effect.latencyMult != null) acc.latencyMult *= effect.latencyMult
+      for (const id of effect.sourceIds) acc.sources.add(id)
+    } else if (effect.kind === 'qualitative') {
+      qualitative.push({ note: effect.note, sourceIds: effect.sourceIds })
+      for (const id of effect.sourceIds) acc.sources.add(id)
     }
   }
 
@@ -111,11 +163,22 @@ export function evaluateSession(state: PolicyState): SessionMetrics {
   const fcr = clamp(acc.fcr, 0.05, 0.98)
   const latencyRel = acc.latencyMult
 
-  // Cached tokens are cheaper; map hit rate to a soft discount on $.
   const cacheFactor = 1 - (cacheHitPct / 100) * 0.45
   const tokenRatio = tokens / BASELINE.tokens
   const costUsd =
     BASELINE.costUsd * acc.costMult * Math.pow(tokenRatio, 0.6) * cacheFactor
+
+  let provenance: MetricProvenance = 'cualitativo'
+  let provenanceLabel = 'cualitativo · sin medición local para políticas activas'
+  if (usedMeasured) {
+    provenance = usedAssumed ? 'asumido' : 'medido'
+    const ids = [...acc.measurementIds].join(',')
+    provenanceLabel = usedAssumed
+      ? `medido + asumido (precio lista) · MVP ${ids} · ${measured.generatedAt}`
+      : `medido · MVP ${ids} · ${measured.generatedAt}`
+  } else if ([...acc.sources].length) {
+    provenanceLabel = `cualitativo / residual · fuente arXiv:${[...acc.sources].slice(0, 3).join(', ')}`
+  }
 
   return {
     tokens,
@@ -124,7 +187,10 @@ export function evaluateSession(state: PolicyState): SessionMetrics {
     fcr,
     latencyRel,
     sources: [...acc.sources],
+    measurementIds: [...acc.measurementIds],
     qualitative,
+    provenance,
+    provenanceLabel,
   }
 }
 
@@ -163,27 +229,40 @@ export function buildMarkdownSummary(
   const base = evaluateSession(Object.fromEntries(allPolicies().map((p) => [p.id, false])))
 
   const lines: string[] = [
-    '# Harness Lab — resumen de política (ilustrativo)',
+    '# Harness Lab — resumen de política',
     '',
-    '> Números **ilustrativos** compuestos desde rangos reportados en papers.',
-    '> **No** medidos sobre tus repositorios.',
+    `> Provenance: **${metrics.provenanceLabel}**`,
+    '> Tokens/estructura = **medido (MVP)**. $/proxy con precios lista = **asumido**.',
+    '> No son facturas de API ni mediciones sobre tus repos de producción.',
     '',
     '## Baseline vs optimizado',
     '',
     '| Métrica | Baseline | Optimizado | Δ |',
     '|---------|----------|------------|---|',
     `| Tokens | ${formatTokens(base.tokens)} | ${formatTokens(metrics.tokens)} | ${deltaPct(metrics.tokens, base.tokens)} |`,
-    `| $/solve | ${formatUsd(base.costUsd)} | ${formatUsd(metrics.costUsd)} | ${deltaPct(metrics.costUsd, base.costUsd)} |`,
+    `| $/solve (proxy) | ${formatUsd(base.costUsd)} | ${formatUsd(metrics.costUsd)} | ${deltaPct(metrics.costUsd, base.costUsd)} |`,
     `| Cache hit | ${formatPct(base.cacheHitPct)} | ${formatPct(metrics.cacheHitPct)} | ${deltaPct(metrics.cacheHitPct, base.cacheHitPct)} |`,
     `| FCR | ${formatFcr(base.fcr)} | ${formatFcr(metrics.fcr)} | ${deltaPct(metrics.fcr, base.fcr)} |`,
     '',
-    '## Políticas ON',
+    '## Mediciones citadas',
     '',
   ]
 
+  if (metrics.measurementIds.length) {
+    for (const id of metrics.measurementIds) {
+      lines.push(`- **${id}** — ${measuredLabel(id)}`)
+    }
+  } else {
+    lines.push('- (ninguna política medida activa)')
+  }
+
+  lines.push('', '## Políticas ON', '')
+
   for (const p of enabled) {
     const src = p.paperIds.map((id) => `arXiv:${id}`).join(', ')
-    lines.push(`- **${p.label}** — ${p.description} _(fuente ${src})_`)
+    const m = measured.policyEffects[p.id]
+    const tag = m ? `medido · MVP ${m.expId}` : 'cualitativo/residual'
+    lines.push(`- **${p.label}** — ${p.description} _(${tag}; por qué: ${src})_`)
   }
 
   lines.push('', '## Políticas OFF', '')
@@ -194,15 +273,23 @@ export function buildMarkdownSummary(
   if (metrics.qualitative.length) {
     lines.push('', '## Notas cualitativas', '')
     for (const q of metrics.qualitative) {
-      lines.push(`- ${q.note} _(fuente ${q.sourceIds.map((id) => `arXiv:${id}`).join(', ')})_`)
+      lines.push(
+        `- ${q.note} _(fuente ${q.sourceIds.map((id) => `arXiv:${id}`).join(', ')})_`,
+      )
     }
   }
 
   lines.push(
     '',
-    '## Fuentes',
+    '## Fuentes (papers)',
     '',
     ...metrics.sources.map((id) => `- https://arxiv.org/abs/${id}`),
+    '',
+    '## Reproducir mediciones',
+    '',
+    '```bash',
+    'npm run measure',
+    '```',
     '',
   )
 

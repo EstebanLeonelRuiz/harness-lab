@@ -1,0 +1,12 @@
+REPO MAP (signatures only)
+src/index.ts — export function main(): Promise<void>
+src/agent/loop.ts — export async function agentLoop(task: Task): Promise<Result>
+src/agent/tools.ts — export const TOOLS: ToolSpec[]
+src/cache/prefix.ts — export function stablePrefix(parts: PromptPart[]): string
+src/cache/kv.ts — export class KvStore { get(k); put(k,v); evict() }
+src/nav/scaffold.ts — export function fileCenteredScaffold(files: FileMeta[]): string
+src/prune/trajectory.ts — export function pruneTrajectory(steps: Step[], window: number): Step[]
+src/control/agents-md.ts — export function loadAgentsMd(path: string): ControlDoc
+tests/loop.test.ts — describe("agentLoop")
+package.json — scripts: measure, build, test
+AGENTS.md — control layer rules

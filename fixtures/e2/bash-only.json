@@ -1,0 +1,3 @@
+[
+  {"name": "bash", "description": "Run a shell command in the workspace. Prefer this single tool for reading, writing, searching, testing, and git operations via familiar CLI programs (cat, sed, rg, npm, git).", "parameters": {"type": "object", "properties": {"command": {"type": "string", "description": "Shell command to execute"}, "timeout_ms": {"type": "integer", "default": 60000}, "cwd": {"type": "string", "default": "."}}, "required": ["command"]}}
+]

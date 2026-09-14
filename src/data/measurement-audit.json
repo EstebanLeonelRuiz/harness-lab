@@ -1,0 +1,1014 @@
+{
+  "generatedAt": "2026-09-14T18:27:54.186Z",
+  "encoding": "o200k_base",
+  "durationMs": 114.48,
+  "experiments": [
+    {
+      "id": "E1",
+      "title": "prefix-cache",
+      "hypothesis": "Stable prefix (dynamic at end) keeps sha256 identical across turns; interleaved dynamic breaks prefix identity.",
+      "method": "Build coding-agent prompt (system+tools+repo map). Condition A appends dynamic at end; B interleaves dynamic after system. Tokenize with o200k_base; sha256 UTF-8 of each condition prefix across 3 turns.",
+      "fixtures": [
+        "fixtures/e1/system.txt",
+        "fixtures/e1/tools.json",
+        "fixtures/e1/repo-map.txt",
+        "fixtures/e1/turns.json"
+      ],
+      "encoding": "o200k_base",
+      "startedAt": "2026-09-14T18:27:54.072Z",
+      "finishedAt": "2026-09-14T18:27:54.104Z",
+      "commands_or_functions": [
+        "tok",
+        "sha256",
+        "runE1"
+      ],
+      "raw": {
+        "prefixTokenCount": 679,
+        "turnsA": [
+          {
+            "turn": 1,
+            "full_tokens": 802,
+            "prefix_sha256": "4e11276d5d545f9ad1ebafa01d4f2250a4edc74972aa8d7c7a4f94db8e83983e",
+            "prefix_tokens": 679
+          },
+          {
+            "turn": 2,
+            "full_tokens": 763,
+            "prefix_sha256": "4e11276d5d545f9ad1ebafa01d4f2250a4edc74972aa8d7c7a4f94db8e83983e",
+            "prefix_tokens": 679
+          },
+          {
+            "turn": 3,
+            "full_tokens": 781,
+            "prefix_sha256": "4e11276d5d545f9ad1ebafa01d4f2250a4edc74972aa8d7c7a4f94db8e83983e",
+            "prefix_tokens": 679
+          }
+        ],
+        "turnsB": [
+          {
+            "turn": 1,
+            "full_tokens": 802,
+            "prefix_sha256": "891a651142f990c74d36d1ceb872934d3831e249a77fa7c6c5798bd467e89e23",
+            "prefix_tokens": 186
+          },
+          {
+            "turn": 2,
+            "full_tokens": 763,
+            "prefix_sha256": "c64c4289019e503185b83ee23294c5327217f8547434a1a0c9c4c54a9cdb4081",
+            "prefix_tokens": 147
+          },
+          {
+            "turn": 3,
+            "full_tokens": 781,
+            "prefix_sha256": "10577d5cd34025026cf61303c1eb9d5badd6d8e5d816f9447096a18006032279",
+            "prefix_tokens": 165
+          }
+        ],
+        "prefixStableA": true,
+        "prefixStableB": false
+      },
+      "metrics": [
+        {
+          "key": "prefix_token_count",
+          "value": 679,
+          "unit": "tokens",
+          "howMeasured": "js-tiktoken o200k_base on stableCore"
+        },
+        {
+          "key": "full_tokens_A_mean",
+          "value": 782,
+          "unit": "tokens",
+          "howMeasured": "mean full prompt A"
+        },
+        {
+          "key": "full_tokens_B_mean",
+          "value": 782,
+          "unit": "tokens",
+          "howMeasured": "mean full prompt B"
+        },
+        {
+          "key": "prefix_stable_A",
+          "value": 1,
+          "unit": "bool",
+          "howMeasured": "sha256 identical across 3 turns for A"
+        },
+        {
+          "key": "prefix_stable_B",
+          "value": 0,
+          "unit": "bool",
+          "howMeasured": "sha256 identical across 3 turns for B"
+        },
+        {
+          "key": "unique_prefix_hashes_A",
+          "value": 1,
+          "unit": "count",
+          "howMeasured": "distinct sha256 A"
+        },
+        {
+          "key": "unique_prefix_hashes_B",
+          "value": 3,
+          "unit": "count",
+          "howMeasured": "distinct sha256 B"
+        }
+      ],
+      "limitations": [
+        "No real provider prompt-cache API; prefix identity is a proxy for cacheability.",
+        "Tokenizer o200k_base may differ from Anthropic/OpenAI production tokenizers used in billing."
+      ],
+      "relatedPaperIds": [
+        "2601.06007",
+        "2606.30560",
+        "2607.15516",
+        "2606.17016",
+        "2608.19662"
+      ]
+    },
+    {
+      "id": "E2",
+      "title": "bash-vs-typed",
+      "hypothesis": "A single bash tool schema uses far fewer tokens than a 12-tool typed catalog.",
+      "method": "Tokenize tool-section-only JSON for 12 typed tools vs 1 bash tool with o200k_base.",
+      "fixtures": [
+        "fixtures/e2/typed-tools.json",
+        "fixtures/e2/bash-only.json"
+      ],
+      "encoding": "o200k_base",
+      "startedAt": "2026-09-14T18:27:54.104Z",
+      "finishedAt": "2026-09-14T18:27:54.106Z",
+      "commands_or_functions": [
+        "tok",
+        "runE2"
+      ],
+      "raw": {
+        "typedToolCount": 12,
+        "bashToolCount": 1,
+        "typedTokens": 918,
+        "bashTokens": 123,
+        "ratio_bash_over_typed": 0.13398692810457516
+      },
+      "metrics": [
+        {
+          "key": "typed_tool_tokens",
+          "value": 918,
+          "unit": "tokens",
+          "howMeasured": "tool section only, 12 schemas"
+        },
+        {
+          "key": "bash_tool_tokens",
+          "value": 123,
+          "unit": "tokens",
+          "howMeasured": "tool section only, 1 schema"
+        },
+        {
+          "key": "token_ratio_bash_over_typed",
+          "value": 0.134,
+          "unit": "ratio",
+          "howMeasured": "bashTokens/typedTokens"
+        },
+        {
+          "key": "token_reduction_pct",
+          "value": 86.6,
+          "unit": "percent",
+          "howMeasured": "(1 - bash/typed)*100"
+        }
+      ],
+      "limitations": [
+        "Counts schema tokens only; ignores that bash may need more conversational clarification.",
+        "Catalog content is fixture-realistic, not extracted from a production agent."
+      ],
+      "relatedPaperIds": [
+        "2609.11999"
+      ]
+    },
+    {
+      "id": "E3",
+      "title": "trajectory-prune",
+      "hypothesis": "Sliding-window + drop-redundant-reads reduces transcript tokens while keeping recent context.",
+      "method": "Serialize multi-turn fixture (~15–25 steps). Apply sliding window then drop older duplicate read_file paths. Count tokens before/after.",
+      "fixtures": [
+        "fixtures/e3/trajectory.json"
+      ],
+      "encoding": "o200k_base",
+      "startedAt": "2026-09-14T18:27:54.106Z",
+      "finishedAt": "2026-09-14T18:27:54.108Z",
+      "commands_or_functions": [
+        "pruneTrajectory",
+        "serializeTrajectory",
+        "tok"
+      ],
+      "raw": {
+        "stepsBefore": 21,
+        "stepsAfter": 10,
+        "windowSize": 10,
+        "tokensBefore": 821,
+        "tokensAfter": 249,
+        "reductionPct": 69.67113276492083,
+        "transformMs": 0.05498000000000047,
+        "prunedIds": [
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21
+        ]
+      },
+      "metrics": [
+        {
+          "key": "tokens_before",
+          "value": 821,
+          "unit": "tokens",
+          "howMeasured": "full serialized trajectory"
+        },
+        {
+          "key": "tokens_after",
+          "value": 249,
+          "unit": "tokens",
+          "howMeasured": "after prune"
+        },
+        {
+          "key": "reduction_pct",
+          "value": 69.67,
+          "unit": "percent",
+          "howMeasured": "(before-after)/before*100"
+        },
+        {
+          "key": "steps_before",
+          "value": 21,
+          "unit": "count",
+          "howMeasured": "fixture step count"
+        },
+        {
+          "key": "steps_after",
+          "value": 10,
+          "unit": "count",
+          "howMeasured": "pruned step count"
+        },
+        {
+          "key": "transform_ms",
+          "value": 0.055,
+          "unit": "ms",
+          "howMeasured": "wall-clock secondary"
+        }
+      ],
+      "limitations": [
+        "Pruner is a simple heuristic, not AgentDiet/SWE-Pruner model-based compression.",
+        "Timing is secondary and machine-dependent; not a primary claim."
+      ],
+      "relatedPaperIds": [
+        "2509.23586",
+        "2609.08318",
+        "2601.16746",
+        "2607.18213",
+        "2609.00749",
+        "2607.22711"
+      ]
+    },
+    {
+      "id": "E4",
+      "title": "control-compression",
+      "hypothesis": "Keeping first N% of AGENTS.md sections reduces tokens; tool-name preservation drops if Tools section is truncated away.",
+      "method": "Split AGENTS.md by ## sections; keep first 75/50/35% of sections. Measure tokens + fraction of declared tool names still present.",
+      "fixtures": [
+        "fixtures/e4/AGENTS.md"
+      ],
+      "encoding": "o200k_base",
+      "startedAt": "2026-09-14T18:27:54.108Z",
+      "finishedAt": "2026-09-14T18:27:54.111Z",
+      "commands_or_functions": [
+        "compressAgentsMd",
+        "toolNamePreservation",
+        "tok"
+      ],
+      "raw": {
+        "tokensFull": 666,
+        "lineCount": 101,
+        "results": {
+          "35": {
+            "tokens": 233,
+            "chars": 1129,
+            "tool_name_preservation_rate": 0,
+            "keepPct": 35
+          },
+          "50": {
+            "tokens": 390,
+            "chars": 1776,
+            "tool_name_preservation_rate": 1,
+            "keepPct": 50
+          },
+          "75": {
+            "tokens": 528,
+            "chars": 2514,
+            "tool_name_preservation_rate": 1,
+            "keepPct": 75
+          }
+        },
+        "transformMs": 2.2766580000001113
+      },
+      "metrics": [
+        {
+          "key": "tokens_full",
+          "value": 666,
+          "unit": "tokens",
+          "howMeasured": "uncompressed AGENTS.md"
+        },
+        {
+          "key": "tokens_keep_75",
+          "value": 528,
+          "unit": "tokens",
+          "howMeasured": "keep first 75% sections"
+        },
+        {
+          "key": "tokens_keep_50",
+          "value": 390,
+          "unit": "tokens",
+          "howMeasured": "keep first 50% sections"
+        },
+        {
+          "key": "tokens_keep_35",
+          "value": 233,
+          "unit": "tokens",
+          "howMeasured": "keep first 35% sections"
+        },
+        {
+          "key": "preservation_75",
+          "value": 1,
+          "unit": "rate",
+          "howMeasured": "tool names present"
+        },
+        {
+          "key": "preservation_50",
+          "value": 1,
+          "unit": "rate",
+          "howMeasured": "tool names present"
+        },
+        {
+          "key": "preservation_35",
+          "value": 0,
+          "unit": "rate",
+          "howMeasured": "tool names present"
+        },
+        {
+          "key": "transform_ms",
+          "value": 2.277,
+          "unit": "ms",
+          "howMeasured": "wall-clock secondary"
+        }
+      ],
+      "limitations": [
+        "Section-prefix truncation is a crude proxy for CompressAgent; not model-based.",
+        "Tool names early in the fixture inflate preservation at high keep%."
+      ],
+      "relatedPaperIds": [
+        "2608.01056",
+        "2608.11095"
+      ]
+    },
+    {
+      "id": "E5",
+      "title": "repo-nav",
+      "hypothesis": "File-centered scaffold (paths+signatures) uses fewer tokens than flat concatenation of all file bodies.",
+      "method": "Pack mini-repo (11 files) two ways: full flat concat vs scaffold of path+signature. Tokenize both.",
+      "fixtures": [
+        "fixtures/e5/mini-repo/",
+        "fixtures/e5/signatures.json"
+      ],
+      "encoding": "o200k_base",
+      "startedAt": "2026-09-14T18:27:54.112Z",
+      "finishedAt": "2026-09-14T18:27:54.115Z",
+      "commands_or_functions": [
+        "walkFiles",
+        "tok",
+        "runE5"
+      ],
+      "raw": {
+        "fileCount": 11,
+        "flatTokens": 946,
+        "scaffoldTokens": 179,
+        "ratio_scaffold_over_flat": 0.18921775898520085,
+        "flatChars": 3522,
+        "scaffoldChars": 745
+      },
+      "metrics": [
+        {
+          "key": "flat_tokens",
+          "value": 946,
+          "unit": "tokens",
+          "howMeasured": "full file concatenation"
+        },
+        {
+          "key": "scaffold_tokens",
+          "value": 179,
+          "unit": "tokens",
+          "howMeasured": "paths + signatures only"
+        },
+        {
+          "key": "token_ratio_scaffold_over_flat",
+          "value": 0.1892,
+          "unit": "ratio",
+          "howMeasured": "scaffold/flat"
+        },
+        {
+          "key": "token_reduction_pct",
+          "value": 81.08,
+          "unit": "percent",
+          "howMeasured": "(1-scaffold/flat)*100"
+        },
+        {
+          "key": "file_count",
+          "value": 11,
+          "unit": "count",
+          "howMeasured": "files in mini-repo"
+        }
+      ],
+      "limitations": [
+        "Scaffold omits bodies; real sessions pay expand cost when reading files.",
+        "Mini-repo is tiny vs production monorepos."
+      ],
+      "relatedPaperIds": [
+        "2609.08355",
+        "2608.29675"
+      ]
+    },
+    {
+      "id": "E6",
+      "title": "agents-md-growth",
+      "hypothesis": "Deletion-signal metadata enables periodic cleanup so final growth ratio is lower than append-only rules.",
+      "method": "Simulate 40 commits each adding a rule. Variant A append-only; variant B includes deletion_signal and prunes signaled rules every 10 commits. Measure final char/token growth ratios.",
+      "fixtures": [
+        "fixtures/e6/rules.json"
+      ],
+      "encoding": "o200k_base",
+      "startedAt": "2026-09-14T18:27:54.115Z",
+      "finishedAt": "2026-09-14T18:27:54.181Z",
+      "commands_or_functions": [
+        "runE6",
+        "tok"
+      ],
+      "raw": {
+        "commits": 40,
+        "final_chars_with": 4059,
+        "final_chars_without": 5447,
+        "final_tokens_with": 965,
+        "final_tokens_without": 1295,
+        "growthRatioCharsWith": 21.36315789473684,
+        "growthRatioCharsWithout": 28.66842105263158,
+        "growthRatioTokensWith": 20.53191489361702,
+        "growthRatioTokensWithout": 27.5531914893617,
+        "growth": [
+          {
+            "commit": 1,
+            "chars_with": 190,
+            "chars_without": 190,
+            "tokens_with": 47,
+            "tokens_without": 47
+          },
+          {
+            "commit": 2,
+            "chars_with": 324,
+            "chars_without": 324,
+            "tokens_with": 79,
+            "tokens_without": 79
+          },
+          {
+            "commit": 3,
+            "chars_with": 506,
+            "chars_without": 458,
+            "tokens_with": 122,
+            "tokens_without": 111
+          },
+          {
+            "commit": 4,
+            "chars_with": 640,
+            "chars_without": 592,
+            "tokens_with": 154,
+            "tokens_without": 143
+          },
+          {
+            "commit": 5,
+            "chars_with": 774,
+            "chars_without": 726,
+            "tokens_with": 186,
+            "tokens_without": 175
+          },
+          {
+            "commit": 6,
+            "chars_with": 956,
+            "chars_without": 860,
+            "tokens_with": 229,
+            "tokens_without": 207
+          },
+          {
+            "commit": 7,
+            "chars_with": 1090,
+            "chars_without": 994,
+            "tokens_with": 261,
+            "tokens_without": 239
+          },
+          {
+            "commit": 8,
+            "chars_with": 1224,
+            "chars_without": 1128,
+            "tokens_with": 293,
+            "tokens_without": 271
+          },
+          {
+            "commit": 9,
+            "chars_with": 1406,
+            "chars_without": 1262,
+            "tokens_with": 336,
+            "tokens_without": 303
+          },
+          {
+            "commit": 10,
+            "chars_with": 1359,
+            "chars_without": 1397,
+            "tokens_with": 325,
+            "tokens_without": 335
+          },
+          {
+            "commit": 11,
+            "chars_with": 1494,
+            "chars_without": 1532,
+            "tokens_with": 357,
+            "tokens_without": 367
+          },
+          {
+            "commit": 12,
+            "chars_with": 1678,
+            "chars_without": 1667,
+            "tokens_with": 400,
+            "tokens_without": 399
+          },
+          {
+            "commit": 13,
+            "chars_with": 1813,
+            "chars_without": 1802,
+            "tokens_with": 432,
+            "tokens_without": 431
+          },
+          {
+            "commit": 14,
+            "chars_with": 1948,
+            "chars_without": 1937,
+            "tokens_with": 464,
+            "tokens_without": 463
+          },
+          {
+            "commit": 15,
+            "chars_with": 2132,
+            "chars_without": 2072,
+            "tokens_with": 507,
+            "tokens_without": 495
+          },
+          {
+            "commit": 16,
+            "chars_with": 2267,
+            "chars_without": 2207,
+            "tokens_with": 539,
+            "tokens_without": 527
+          },
+          {
+            "commit": 17,
+            "chars_with": 2402,
+            "chars_without": 2342,
+            "tokens_with": 571,
+            "tokens_without": 559
+          },
+          {
+            "commit": 18,
+            "chars_with": 2586,
+            "chars_without": 2477,
+            "tokens_with": 614,
+            "tokens_without": 591
+          },
+          {
+            "commit": 19,
+            "chars_with": 2721,
+            "chars_without": 2612,
+            "tokens_with": 646,
+            "tokens_without": 623
+          },
+          {
+            "commit": 20,
+            "chars_with": 2304,
+            "chars_without": 2747,
+            "tokens_with": 549,
+            "tokens_without": 655
+          },
+          {
+            "commit": 21,
+            "chars_with": 2488,
+            "chars_without": 2882,
+            "tokens_with": 592,
+            "tokens_without": 687
+          },
+          {
+            "commit": 22,
+            "chars_with": 2623,
+            "chars_without": 3017,
+            "tokens_with": 624,
+            "tokens_without": 719
+          },
+          {
+            "commit": 23,
+            "chars_with": 2758,
+            "chars_without": 3152,
+            "tokens_with": 656,
+            "tokens_without": 751
+          },
+          {
+            "commit": 24,
+            "chars_with": 2942,
+            "chars_without": 3287,
+            "tokens_with": 699,
+            "tokens_without": 783
+          },
+          {
+            "commit": 25,
+            "chars_with": 3077,
+            "chars_without": 3422,
+            "tokens_with": 731,
+            "tokens_without": 815
+          },
+          {
+            "commit": 26,
+            "chars_with": 3212,
+            "chars_without": 3557,
+            "tokens_with": 763,
+            "tokens_without": 847
+          },
+          {
+            "commit": 27,
+            "chars_with": 3396,
+            "chars_without": 3692,
+            "tokens_with": 806,
+            "tokens_without": 879
+          },
+          {
+            "commit": 28,
+            "chars_with": 3531,
+            "chars_without": 3827,
+            "tokens_with": 838,
+            "tokens_without": 911
+          },
+          {
+            "commit": 29,
+            "chars_with": 3666,
+            "chars_without": 3962,
+            "tokens_with": 870,
+            "tokens_without": 943
+          },
+          {
+            "commit": 30,
+            "chars_with": 3114,
+            "chars_without": 4097,
+            "tokens_with": 741,
+            "tokens_without": 975
+          },
+          {
+            "commit": 31,
+            "chars_with": 3249,
+            "chars_without": 4232,
+            "tokens_with": 773,
+            "tokens_without": 1007
+          },
+          {
+            "commit": 32,
+            "chars_with": 3384,
+            "chars_without": 4367,
+            "tokens_with": 805,
+            "tokens_without": 1039
+          },
+          {
+            "commit": 33,
+            "chars_with": 3568,
+            "chars_without": 4502,
+            "tokens_with": 848,
+            "tokens_without": 1071
+          },
+          {
+            "commit": 34,
+            "chars_with": 3703,
+            "chars_without": 4637,
+            "tokens_with": 880,
+            "tokens_without": 1103
+          },
+          {
+            "commit": 35,
+            "chars_with": 3838,
+            "chars_without": 4772,
+            "tokens_with": 912,
+            "tokens_without": 1135
+          },
+          {
+            "commit": 36,
+            "chars_with": 4022,
+            "chars_without": 4907,
+            "tokens_with": 955,
+            "tokens_without": 1167
+          },
+          {
+            "commit": 37,
+            "chars_with": 4157,
+            "chars_without": 5042,
+            "tokens_with": 987,
+            "tokens_without": 1199
+          },
+          {
+            "commit": 38,
+            "chars_with": 4292,
+            "chars_without": 5177,
+            "tokens_with": 1019,
+            "tokens_without": 1231
+          },
+          {
+            "commit": 39,
+            "chars_with": 4476,
+            "chars_without": 5312,
+            "tokens_with": 1062,
+            "tokens_without": 1263
+          },
+          {
+            "commit": 40,
+            "chars_with": 4059,
+            "chars_without": 5447,
+            "tokens_with": 965,
+            "tokens_without": 1295
+          }
+        ]
+      },
+      "metrics": [
+        {
+          "key": "final_tokens_without_signal",
+          "value": 1295,
+          "unit": "tokens",
+          "howMeasured": "append-only"
+        },
+        {
+          "key": "final_tokens_with_signal",
+          "value": 965,
+          "unit": "tokens",
+          "howMeasured": "with deletion_signal pruning"
+        },
+        {
+          "key": "growth_ratio_tokens_without",
+          "value": 27.5532,
+          "unit": "ratio",
+          "howMeasured": "final/first tokens append-only"
+        },
+        {
+          "key": "growth_ratio_tokens_with",
+          "value": 20.5319,
+          "unit": "ratio",
+          "howMeasured": "final/first tokens with signal"
+        },
+        {
+          "key": "growth_ratio_chars_without",
+          "value": 28.6684,
+          "unit": "ratio",
+          "howMeasured": "final/first chars append-only"
+        },
+        {
+          "key": "growth_ratio_chars_with",
+          "value": 21.3632,
+          "unit": "ratio",
+          "howMeasured": "final/first chars with signal"
+        }
+      ],
+      "limitations": [
+        "Prune policy is a lab heuristic, not the CLAUDE.md paper algorithm.",
+        "Growth ratios depend on fixture rule length and prune cadence."
+      ],
+      "relatedPaperIds": [
+        "2608.11095"
+      ]
+    },
+    {
+      "id": "E7",
+      "title": "kv-access-sim",
+      "hypothesis": "Tool-commit-aware eviction (pin until observation commit) improves hit rate vs plain LRU on a mixed prefix/tool access trace.",
+      "method": "Seeded Mulberry32(seed=42) simulation of 200 steps over 14 page capacity. 8 prefix pages + 50 tool-result pages. LRU vs CommitKV-inspired: tool pages pinned until synthetic observation commit.",
+      "fixtures": [
+        "fixtures/e7/sim-config.json"
+      ],
+      "encoding": "o200k_base",
+      "seed": 42,
+      "startedAt": "2026-09-14T18:27:54.184Z",
+      "finishedAt": "2026-09-14T18:27:54.185Z",
+      "commands_or_functions": [
+        "mulberry32",
+        "simulate",
+        "runE7"
+      ],
+      "raw": {
+        "config": {
+          "seed": 42,
+          "steps": 200,
+          "capacityPages": 14,
+          "prefixPages": 8,
+          "toolResultPages": 50,
+          "prefixAccessWeight": 0.45,
+          "algorithm": {
+            "lru": "Evict least-recently-used unpinned page when over capacity.",
+            "tool_commit_aware": "Tool-result pages are pinned from allocation until a synthetic 'observation commit' event; only then become eligible for LRU eviction (CommitKV-inspired)."
+          }
+        },
+        "lru": {
+          "hits": 30,
+          "misses": 170,
+          "hitRatePct": 15,
+          "rereadHitRatePct": 0,
+          "rereadHits": 0,
+          "rereadTotal": 10,
+          "finalSize": 14,
+          "traceGets": 200
+        },
+        "tool_commit_aware": {
+          "hits": 40,
+          "misses": 160,
+          "hitRatePct": 20,
+          "rereadHitRatePct": 100,
+          "rereadHits": 10,
+          "rereadTotal": 10,
+          "finalSize": 14,
+          "traceGets": 200
+        },
+        "algorithm": {
+          "lru": "Evict least-recently-used unpinned page when over capacity.",
+          "tool_commit_aware": "Tool-result pages are pinned from allocation until a synthetic 'observation commit' event; only then become eligible for LRU eviction (CommitKV-inspired)."
+        }
+      },
+      "metrics": [
+        {
+          "key": "lru_hit_rate_pct",
+          "value": 15,
+          "unit": "percent",
+          "howMeasured": "LRU simulation hits/(hits+misses)"
+        },
+        {
+          "key": "commit_aware_hit_rate_pct",
+          "value": 20,
+          "unit": "percent",
+          "howMeasured": "tool-commit-aware hits/(hits+misses)"
+        },
+        {
+          "key": "hit_rate_delta_pp",
+          "value": 5,
+          "unit": "percentage_points",
+          "howMeasured": "commit_aware - lru"
+        },
+        {
+          "key": "steps",
+          "value": 200,
+          "unit": "count",
+          "howMeasured": "simulation length"
+        },
+        {
+          "key": "capacity_pages",
+          "value": 14,
+          "unit": "count",
+          "howMeasured": "cache capacity"
+        }
+      ],
+      "limitations": [
+        "Synthetic access trace — not captured from a live agent runtime.",
+        "Page granularity and pin/commit timing are simplified CommitKV analogues.",
+        "No real GPU/CPU KV tensor memory measured."
+      ],
+      "relatedPaperIds": [
+        "2608.07855",
+        "2507.07400",
+        "2605.06472",
+        "2606.16824"
+      ]
+    },
+    {
+      "id": "E8",
+      "title": "economics-identity",
+      "hypothesis": "Aggressive prune that forces prefix rewrite can raise proxy $ even when total tokens drop (Token Reduction ≠ Cost Reduction).",
+      "method": "Compose local cost proxy from E1 prefix/full tokens and E3 reduction. ASSUMED list prices (not billed): INPUT=$3/MTok, CACHED_INPUT=$0.3/MTok, OUTPUT=$15/MTok. Compare stable-prefix vs aggressive-prune-breaks-cache vs mild-prune-keeps-cache.",
+      "fixtures": [
+        "derived from E1–E3 measurements"
+      ],
+      "encoding": "o200k_base",
+      "startedAt": "2026-09-14T18:27:54.186Z",
+      "finishedAt": "2026-09-14T18:27:54.186Z",
+      "commands_or_functions": [
+        "proxyCostUsd",
+        "runE8"
+      ],
+      "raw": {
+        "assumptions": {
+          "ASSUMED_PRICE_PER_MTOK_INPUT": 3,
+          "ASSUMED_PRICE_PER_MTOK_CACHED_INPUT": 0.3,
+          "ASSUMED_PRICE_PER_MTOK_OUTPUT": 15,
+          "note": "List-price assumptions only — no API billing measured on this machine."
+        },
+        "fromE1": {
+          "prefixTokens": 679,
+          "fullA": 2346,
+          "dynamicA": 309,
+          "turns": 3
+        },
+        "fromE2": {
+          "typedTokens": 918,
+          "bashTokens": 123
+        },
+        "fromE3": {
+          "tokensBefore": 821,
+          "tokensAfter": 249
+        },
+        "scenarios": {
+          "stable_prefix": {
+            "freshInputTokens": 988,
+            "cachedInputTokens": 1358,
+            "tokens": 2346,
+            "proxyUsd": 0.0033713999999999997
+          },
+          "aggressive_prune_breaks_cache": {
+            "freshInputTokens": 2131,
+            "cachedInputTokens": 0,
+            "tokens": 2131,
+            "proxyUsd": 0.006393
+          },
+          "mild_prune_keeps_cache": {
+            "freshInputTokens": 773,
+            "cachedInputTokens": 1358,
+            "tokens": 2131,
+            "proxyUsd": 0.0027264
+          }
+        }
+      },
+      "metrics": [
+        {
+          "key": "proxy_usd_stable_prefix",
+          "value": 0.003371,
+          "unit": "USD",
+          "howMeasured": "assumed list prices"
+        },
+        {
+          "key": "proxy_usd_aggressive_breaks_cache",
+          "value": 0.006393,
+          "unit": "USD",
+          "howMeasured": "assumed list prices"
+        },
+        {
+          "key": "proxy_usd_mild_keeps_cache",
+          "value": 0.002726,
+          "unit": "USD",
+          "howMeasured": "assumed list prices"
+        },
+        {
+          "key": "tokens_stable",
+          "value": 2346,
+          "unit": "tokens",
+          "howMeasured": "fresh+cached counted"
+        },
+        {
+          "key": "tokens_aggressive",
+          "value": 2131,
+          "unit": "tokens",
+          "howMeasured": "all fresh"
+        },
+        {
+          "key": "tokens_mild",
+          "value": 2131,
+          "unit": "tokens",
+          "howMeasured": "fresh+cached counted"
+        },
+        {
+          "key": "aggressive_cheaper_tokens_but_costlier_usd",
+          "value": 1,
+          "unit": "bool",
+          "howMeasured": "tokens drop but proxy $ rises"
+        },
+        {
+          "key": "assumed_price_input_per_mtok",
+          "value": 3,
+          "unit": "USD/MTok",
+          "howMeasured": "assumption not measured"
+        },
+        {
+          "key": "assumed_price_cached_input_per_mtok",
+          "value": 0.3,
+          "unit": "USD/MTok",
+          "howMeasured": "assumption not measured"
+        }
+      ],
+      "limitations": [
+        "Dollar figures are ASSUMED list-price proxies — not real invoices.",
+        "No Anthropic/OpenAI/xAI API keys; billing not measured.",
+        "Cache discount ratio is an assumption (10x cheaper cached input)."
+      ],
+      "relatedPaperIds": [
+        "2607.12161",
+        "2604.22750"
+      ]
+    }
+  ]
+}

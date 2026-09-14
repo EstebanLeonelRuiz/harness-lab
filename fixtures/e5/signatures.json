@@ -1,0 +1,13 @@
+[
+  {"path": "package.json", "signature": "{ name, scripts }"},
+  {"path": "README.md", "signature": "# mini-agent-repo"},
+  {"path": "AGENTS.md", "signature": "# AGENTS.md — tools + prefix rules"},
+  {"path": "src/index.ts", "signature": "export async function main(task: Task): Promise<void>"},
+  {"path": "src/types.ts", "signature": "export interface Task; Result; ToolSpec; FileMeta"},
+  {"path": "src/agent/loop.ts", "signature": "export async function agentLoop(task); export function planSteps(task)"},
+  {"path": "src/agent/tools.ts", "signature": "export const TOOLS; export function toolNames()"},
+  {"path": "src/cache/prefix.ts", "signature": "export function stablePrefix(parts); shaPreview(s)"},
+  {"path": "src/cache/kv.ts", "signature": "export class KvStore { get; put; commitObservation }"},
+  {"path": "src/nav/scaffold.ts", "signature": "export function fileCenteredScaffold(files); flatConcat(files)"},
+  {"path": "tests/loop.test.ts", "signature": "describe('agentLoop helpers')"}
+]

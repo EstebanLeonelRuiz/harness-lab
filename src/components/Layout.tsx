@@ -3,6 +3,7 @@ import { NavLink, Outlet } from 'react-router-dom'
 const nav = [
   { to: '/', label: 'Inicio', end: true },
   { to: '/lab', label: 'Lab', end: false },
+  { to: '/audit', label: 'Audit' },
   { to: '/pipeline', label: 'Pipeline' },
   { to: '/catalog', label: 'Catálogo' },
   { to: '/demos', label: 'Demos' },
@@ -21,7 +22,7 @@ export function Layout() {
               Harness Lab
             </div>
             <div className="text-[10px] uppercase tracking-widest text-muted">
-              Integrated lab · cache · control · $
+              Integrated lab · medido MVP · $
             </div>
           </div>
         </NavLink>
@@ -46,9 +47,10 @@ export function Layout() {
         <Outlet />
       </main>
       <footer className="mt-12 border-t border-line pt-4 text-xs text-muted">
-        Métricas = <strong className="text-warn">ilustrativas · fuente arXiv:ID</strong>. No medidas
-        en tus repos. Producto: <code className="text-fg">/lab</code>. Catálogo en{' '}
-        <code className="text-fg">src/data/papers.json</code>.
+        <strong className="text-ok">medido (MVP)</strong> tokens/estructura ·{' '}
+        <strong className="text-warn">asumido (precio lista)</strong> proxy $ · cualitativo residual.
+        Sin facturas de API. Audit: <code className="text-fg">/audit</code> ·{' '}
+        <code className="text-fg">npm run measure</code>.
       </footer>
     </div>
   )

@@ -1,0 +1,133 @@
+{
+  "generatedAt": "2026-09-14T18:27:54.186Z",
+  "encoding": "o200k_base",
+  "encodingNote": "js-tiktoken encoding o200k_base (GPT-4o / o-series). Documented choice — not a provider billing tokenizer guarantee.",
+  "assumptions": {
+    "ASSUMED_PRICE_PER_MTOK_INPUT": 3,
+    "ASSUMED_PRICE_PER_MTOK_CACHED_INPUT": 0.3,
+    "ASSUMED_PRICE_PER_MTOK_OUTPUT": 15,
+    "TOOL_SECTION_SHARE": 0.28,
+    "REPO_PACK_SHARE": 0.35,
+    "TRAJ_SHARE": 0.4,
+    "note": "asumido (precio lista) — not measured API bills; session-share blends are composition assumptions for Lab tokenomics"
+  },
+  "experiments": {
+    "E1": {
+      "prefix_token_count": 679,
+      "prefix_stable_A": true,
+      "prefix_stable_B": false,
+      "unique_prefix_hashes_A": 1,
+      "unique_prefix_hashes_B": 3,
+      "full_tokens_A_mean": 782,
+      "full_tokens_B_mean": 782
+    },
+    "E2": {
+      "typed_tool_tokens": 918,
+      "bash_tool_tokens": 123,
+      "token_ratio_bash_over_typed": 0.134,
+      "token_reduction_pct": 86.6
+    },
+    "E3": {
+      "tokens_before": 821,
+      "tokens_after": 249,
+      "reduction_pct": 69.67,
+      "steps_before": 21,
+      "steps_after": 10
+    },
+    "E4": {
+      "tokens_full": 666,
+      "tokens_keep_75": 528,
+      "tokens_keep_50": 390,
+      "tokens_keep_35": 233,
+      "preservation_75": 1,
+      "preservation_50": 1,
+      "preservation_35": 0
+    },
+    "E5": {
+      "flat_tokens": 946,
+      "scaffold_tokens": 179,
+      "token_ratio_scaffold_over_flat": 0.1892,
+      "token_reduction_pct": 81.08,
+      "file_count": 11
+    },
+    "E6": {
+      "growth_ratio_tokens_without": 27.5532,
+      "growth_ratio_tokens_with": 20.5319,
+      "final_tokens_without_signal": 1295,
+      "final_tokens_with_signal": 965
+    },
+    "E7": {
+      "seed": 42,
+      "lru_hit_rate_pct": 15,
+      "commit_aware_hit_rate_pct": 20,
+      "hit_rate_delta_pp": 5
+    },
+    "E8": {
+      "proxy_usd_stable_prefix": 0.003371,
+      "proxy_usd_aggressive_breaks_cache": 0.006393,
+      "proxy_usd_mild_keeps_cache": 0.002726,
+      "aggressive_cheaper_tokens_but_costlier_usd": true,
+      "tokens_stable": 2346,
+      "tokens_aggressive": 2131,
+      "tokens_mild": 2131
+    }
+  },
+  "policyEffects": {
+    "stable-prefix": {
+      "kind": "measured",
+      "expId": "E1",
+      "cacheHitDelta": 35,
+      "costMult": 0.4264,
+      "citation": "E1 prefix sha256 identity + E8 proxy"
+    },
+    "bash-first": {
+      "kind": "measured",
+      "expId": "E2",
+      "tokenMult": 0.7575,
+      "sectionRatio": 0.134,
+      "citation": "E2 bash/typed tool-section tokens (blended at 28% session share)"
+    },
+    "trajectory-prune": {
+      "kind": "measured",
+      "expId": "E3",
+      "tokenMult": 0.7213,
+      "transcriptMult": 0.3033,
+      "citation": "E3 prune reduction (blended at 40% transcript share)"
+    },
+    "protect-control": {
+      "kind": "measured",
+      "expId": "E4",
+      "tokenMult": 1.6738,
+      "preservation50": 1,
+      "preservation35": 0,
+      "citation": "E4 tokens@50% / tokens@35% + tool-name preservation"
+    },
+    "agents-md-hygiene": {
+      "kind": "measured",
+      "expId": "E6",
+      "tokenMult": 0.7452,
+      "citation": "E6 growth ratio with vs without deletion_signal"
+    },
+    "file-centered-nav": {
+      "kind": "measured",
+      "expId": "E5",
+      "tokenMult": 0.7162,
+      "packRatio": 0.1892,
+      "citation": "E5 scaffold/flat tokens (blended at 35% repo-pack share)"
+    },
+    "agent-aware-kv": {
+      "kind": "measured",
+      "expId": "E7",
+      "cacheHitDelta": 5,
+      "citation": "E7 commit-aware vs LRU hit rate"
+    },
+    "optimize-dollars": {
+      "kind": "measured",
+      "expId": "E8",
+      "costMult": 0.4264,
+      "showsTokenDropCanRaiseCost": true,
+      "citation": "E8 proxy $ scenarios (asumido precio lista)"
+    }
+  },
+  "provenanceLabel": "medido · MVP · 2026-09-14T18:27:54.186Z"
+}

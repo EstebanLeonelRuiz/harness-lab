@@ -8,7 +8,7 @@ import { TokenomicsPanel } from '../components/lab/TokenomicsPanel'
 import { ScoreBoards } from '../components/lab/ScoreBoards'
 import { PaperChip } from '../components/PaperChip'
 import { Card } from '../components/Card'
-import { IllustrativeBanner } from '../components/IllustrativeBanner'
+import { IllustrativeBanner, ProvenanceLegend } from '../components/IllustrativeBanner'
 import {
   buildMarkdownSummary,
   defaultPolicyState,
@@ -111,7 +111,11 @@ export function Lab() {
           {verifiedCount()} verificados en arXiv) aparece como palanca, métrica, checklist o chip
           deep-dive.
         </p>
-        <IllustrativeBanner text="Todas las métricas numéricas son ilustrativas · fuente arXiv:ID. No están mediciones sobre tus repos." />
+        <IllustrativeBanner
+          tone="ok"
+          text="Deltas de políticas medidas vienen de npm run measure (medido · MVP). $/solve usa precios lista asumidos (E8). Papers citan el porqué."
+        />
+        <ProvenanceLegend />
         {missing.length > 0 && (
           <p className="text-xs text-danger">
             Wiring incompleto: faltan en lab {missing.join(', ')}
@@ -260,7 +264,8 @@ export function Lab() {
                 </tbody>
               </table>
             </div>
-            <p className="mt-2 text-[10px] text-warn">
+            <p className="mt-2 text-[10px] text-ok">{metrics.provenanceLabel}</p>
+            <p className="mt-1 text-[10px] text-muted">
               {illustrativeSourceLabel(metrics.sources)}
             </p>
             <button
@@ -276,9 +281,9 @@ export function Lab() {
         <div className="lg:sticky lg:top-4 lg:self-start">
           <TokenomicsPanel metrics={metrics} />
           <p className="mt-3 text-[11px] text-muted">
-            Deep-dives opcionales:{' '}
-            <Link to="/pipeline">Pipeline</Link> · <Link to="/catalog">Catálogo</Link> ·{' '}
-            <Link to="/demos">Demos</Link>
+            Deep-dives:{' '}
+            <Link to="/audit">Audit</Link> · <Link to="/pipeline">Pipeline</Link> ·{' '}
+            <Link to="/catalog">Catálogo</Link> · <Link to="/demos">Demos</Link>
           </p>
         </div>
       </div>

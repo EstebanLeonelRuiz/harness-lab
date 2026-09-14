@@ -7,9 +7,12 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "measure": "node scripts/measure.mjs",
+    "prebuild": "node scripts/measure.mjs"
   },
   "dependencies": {
+    "js-tiktoken": "^1.0.21",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-router-dom": "^7.18.3"

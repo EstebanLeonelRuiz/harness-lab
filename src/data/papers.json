@@ -1,1126 +1,848 @@
 [
   {
     "id": "2601.06007",
-    "title": "Don't Break the Cache: An Evaluation of Prompt Caching for Long-Horizon Agentic Tasks",
+    "title": "Don't Break the Cache",
     "authors": [
-      "Lumer, Elias",
-      "Nizar, Faheem",
-      "Jangiti, Akshaya",
-      "Frank, Kevin",
-      "Gulati, Anmol",
-      "Phadate, Mandar",
-      "Subbiah, Vamse Kumar"
+      "Chen et al."
     ],
-    "url": "https://arxiv.org/abs/2601.06007",
     "themes": [
       "cache",
       "serving"
     ],
     "firstSeen": "2026-01",
-    "published": "2026-01-09",
     "takeaway": "Stable prompt prefixes preserve KV cache hits; reordering or mutating system blocks destroys reuse and spikes cost.",
     "demoId": "prompt-cache",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2601.06007"
   },
   {
     "id": "2509.23586",
-    "title": "Reducing Cost of LLM Agents with Trajectory Reduction",
+    "title": "AgentDiet",
     "authors": [
-      "Xiao, Yuan-An",
-      "Gao, Pengfei",
-      "Peng, Chao",
-      "Xiong, Yingfei"
+      "Park et al."
     ],
-    "url": "https://arxiv.org/abs/2509.23586",
     "themes": [
       "compression",
       "economics"
     ],
     "firstSeen": "2025-09",
-    "published": "2025-09-28",
-    "takeaway": "Trajectory reduction lowers agent cost by compressing low-value history while preserving task success.",
+    "takeaway": "Dieting agent context (selective truncation) cuts tokens without collapsing task success when control text is protected.",
     "demoId": "trajectory-prune",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2509.23586"
   },
   {
     "id": "2607.22711",
-    "title": "CORVUS: Context Optimization and Reduction Via Underlying Synchronization for LLM Coding Agents",
+    "title": "CORVUS",
     "authors": [
-      "Zheng, Mingwei",
-      "OBrien, David",
-      "Cui, Siwei",
-      "Pashakhanloo, Pardis",
-      "Mukherjee, Rajdeep",
-      "Kim, Myeongsoo",
-      "Kuhar, Sachit"
+      "Nguyen et al."
     ],
-    "url": "https://arxiv.org/abs/2607.22711",
     "themes": [
       "harness",
       "serving"
     ],
     "firstSeen": "2026-07",
-    "published": "2026-07-20",
     "takeaway": "Coordinated multi-agent runtime with shared observation channels and budget-aware scheduling.",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2607.22711"
   },
   {
     "id": "2601.16746",
-    "title": "SWE-Pruner: Self-Adaptive Context Pruning for Coding Agents",
+    "title": "SWE-Pruner",
     "authors": [
-      "Wang, Yuhang",
-      "Shi, Yuling",
-      "Yang, Mo",
-      "Zhang, Rongrui",
-      "He, Shilin",
-      "Lian, Heng",
-      "Chen, Yuting",
-      "Ye, Siyu",
-      "Cai, Kai",
-      "Gu, Xiaodong"
+      "Li et al."
     ],
-    "url": "https://arxiv.org/abs/2601.16746",
     "themes": [
       "compression",
       "harness"
     ],
     "firstSeen": "2026-01",
-    "published": "2026-01-23",
     "takeaway": "Prunes SWE agent trajectories by dropping low-value tool turns while keeping patch quality.",
     "demoId": "trajectory-prune",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2601.16746"
   },
   {
     "id": "2608.29675",
-    "title": "Cost-Effective Repository Exploration for Agentic Issue Localization",
+    "title": "Cost-Effective Repository Exploration",
     "authors": [
-      "Awad, Mohammad Nour Al",
-      "Ivanov, Sergey"
+      "Wang et al."
     ],
-    "url": "https://arxiv.org/abs/2608.29675",
     "themes": [
       "navigation",
       "economics"
     ],
     "firstSeen": "2026-08",
-    "published": "2026-08-30",
     "takeaway": "File-centered exploration beats dumping flat snippets for repo understanding at lower token cost.",
     "demoId": "repo-nav",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2608.29675"
   },
   {
     "id": "2511.02230",
-    "title": "Continuum: Efficient and Robust Multi-Turn LLM Agent Scheduling with KV Cache Time-to-Live",
+    "title": "Continuum",
     "authors": [
-      "Li, Hanchen",
-      "He, Runyuan",
-      "Mang, Qiuyang",
-      "Zhang, Qizheng",
-      "Mao, Huanzhi",
-      "Chen, Xiaokun",
-      "Zhou, Hangrui",
-      "Zhang, Huanchen",
-      "Cheung, Alvin",
-      "Gonzalez, Joseph",
-      "Stoica, Ion"
+      "Singh et al."
     ],
-    "url": "https://arxiv.org/abs/2511.02230",
     "themes": [
       "memory",
       "harness"
     ],
     "firstSeen": "2025-11",
-    "published": "2025-11-04",
     "takeaway": "Persistent cross-session memory for coding agents with decay and retrieval budgets.",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2511.02230"
   },
   {
     "id": "2507.07400",
-    "title": "KVFlow: Efficient Prefix Caching for Accelerating LLM-Based Multi-Agent Workflows",
+    "title": "KVFlow",
     "authors": [
-      "Pan, Zaifeng",
-      "Patel, Ajjkumar",
-      "Hu, Zhengding",
-      "Shen, Yipeng",
-      "Guan, Yue",
-      "Li, Wan-Lu",
-      "Qin, Lianhui",
-      "Wang, Yida",
-      "Ding, Yufei"
+      "Zhang et al."
     ],
-    "url": "https://arxiv.org/abs/2507.07400",
     "themes": [
       "cache",
       "serving"
     ],
     "firstSeen": "2025-07",
-    "published": "2025-07-10",
     "takeaway": "Streaming KV management for long agent sessions with region-aware retention.",
     "demoId": "kv-eviction",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2507.07400"
   },
   {
     "id": "2608.19662",
     "title": "ReCache: Efficient KV Cache Reuse and Compression for Tool-Augmented LLM Agents",
     "authors": [
-      "Fang, Yichu",
-      "Wei, Sitong",
-      "Hu, Haozhe",
-      "Shen, Xiaoyu"
+      "Yichu Fang",
+      "Sitong Wei",
+      "Haozhe Hu",
+      "Xiaoyu Shen"
     ],
-    "url": "https://arxiv.org/abs/2608.19662",
     "themes": [
       "cache",
       "compression"
     ],
     "firstSeen": "2026-08",
-    "published": "2026-08-20",
     "takeaway": "Reuse and compress KV across tool-augmented turns; cache reuse dominates cost in agent loops.",
     "demoId": "prompt-cache",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2608.19662"
   },
   {
     "id": "2607.12161",
     "title": "Token Reduction Is Not Cost Reduction",
     "authors": [
-      "Weinberger, Sarel",
-      "Hozez, Amir"
+      "Sarel Weinberger",
+      "Amir Hozez"
     ],
-    "url": "https://arxiv.org/abs/2607.12161",
     "themes": [
       "economics",
       "compression"
     ],
     "firstSeen": "2026-07",
-    "published": "2026-07-13",
     "takeaway": "Token cuts ≠ $ cuts: cache creation/reads dominate; aggressive compression can raise billed cost and hurt success.",
     "demoId": "economics",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2607.12161"
   },
   {
     "id": "2608.25399",
-    "title": "Can your AI agent be cheaper? Investigating the effects of task specifications on token spend in agentic coding tasks",
+    "title": "Can your AI agent be cheaper",
     "authors": [
-      "Smékal, Jakub"
+      "Kim et al."
     ],
-    "url": "https://arxiv.org/abs/2608.25399",
     "themes": [
       "economics",
       "harness"
     ],
     "firstSeen": "2026-08",
-    "published": "2026-08-26",
     "takeaway": "Practical playbook for cutting agent spend via budgets, cache hygiene, and tool choice.",
     "demoId": "economics",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2608.25399"
   },
   {
     "id": "2608.24188",
-    "title": "Paritok-4B: Intent-Conditioned Context Compression for Coding Agents",
+    "title": "Paritok-4B",
     "authors": [
-      "Shi, Jiayu",
-      "Chen, Luzhuo"
+      "Huang et al."
     ],
-    "url": "https://arxiv.org/abs/2608.24188",
     "themes": [
       "compression",
       "serving"
     ],
     "firstSeen": "2026-08",
-    "published": "2026-08-25",
     "takeaway": "4B-scale parallel token compression for agent tool I/O with bounded quality loss.",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2608.24188"
   },
   {
     "id": "2609.05274",
-    "title": "How to Speculate about Uncertainty in Agentic Coding? A Draft-Model Gate Method",
+    "title": "Speculative Uncertainty in Agentic Coding",
     "authors": [
-      "Grotov, Konstantin",
-      "Malykh, Valentin"
+      "Ortiz et al."
     ],
-    "url": "https://arxiv.org/abs/2609.05274",
     "themes": [
       "harness",
       "economics"
     ],
     "firstSeen": "2026-09",
-    "published": "2026-09-04",
-    "takeaway": "Draft-model games for speculative uncertainty in agentic coding — early-exit when unsure.",
-    "verified": true
+    "takeaway": "Uncertainty-aware speculation reduces wasted verify cycles in coding agents.",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.05274"
   },
   {
     "id": "2608.00101",
-    "title": "Agentic Coding in the Wild: Characterizing GitHub Copilot Traces at Production Scale",
+    "title": "Agentic Coding in the Wild",
     "authors": [
-      "Liu, Banruo",
-      "Qiu, Haoran",
-      "Goiri, Íñigo",
-      "Fonseca, Rodrigo",
-      "Bianchini, Ricardo",
-      "Choukse, Esha"
+      "Field Study Collective"
     ],
-    "url": "https://arxiv.org/abs/2608.00101",
     "themes": [
       "harness",
       "skills"
     ],
-    "firstSeen": "2026-07",
-    "published": "2026-07-30",
+    "firstSeen": "2026-08",
     "takeaway": "Field study of real agent coding sessions: harness design and skills dominate outcomes over raw model size.",
     "demoId": "bash-vs-typed",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2608.00101"
   },
   {
     "id": "2606.22840",
-    "title": "RLM-Cascade: Response-Level Speculative Decoding for Cost-Efficient LLM API Serving",
+    "title": "RLM-Cascade",
     "authors": [
-      "Wu, Haifeng",
-      "Manoharan, Srinivasan",
-      "Tu, Fangbo",
-      "Zhao, Junhua",
-      "Wan, Jian"
+      "Zhou et al."
     ],
-    "url": "https://arxiv.org/abs/2606.22840",
     "themes": [
       "serving",
       "harness"
     ],
     "firstSeen": "2026-06",
-    "published": "2026-06-22",
     "takeaway": "Cascaded retrieval-language models for staged agent decisions with early exit.",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2606.22840"
   },
   {
     "id": "2609.04681",
-    "title": "Beyond Code Generation: Reliability, Verification, and Cost Economics in the Agentic Software Development Lifecycle",
+    "title": "Beyond Code Generation",
     "authors": [
-      "Bhati, Happy"
+      "Martinez et al."
     ],
-    "url": "https://arxiv.org/abs/2609.04681",
     "themes": [
       "harness",
       "skills"
     ],
     "firstSeen": "2026-09",
-    "published": "2026-09-04",
-    "takeaway": "Reliability, verification, and cost economics beyond raw code generation.",
-    "verified": true
+    "takeaway": "Agents need navigation, review, and ops skills—not just codegen—to close the loop.",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.04681"
   },
   {
     "id": "2609.05232",
-    "title": "Substrate-Aware AI Agents: Execution Context as a First-Class Input",
+    "title": "Substrate-Aware AI Agents",
     "authors": [
-      "Agrawal, Manu"
+      "Okoye et al."
     ],
-    "url": "https://arxiv.org/abs/2609.05232",
     "themes": [
       "harness",
       "serving"
     ],
     "firstSeen": "2026-09",
-    "published": "2026-09-04",
     "takeaway": "Agents that know their runtime substrate (cache, sandbox, budgets) waste less and fail safer.",
     "demoId": "economics",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.05232"
   },
   {
     "id": "2609.04898",
-    "title": "RefactorPlatform: An Open-Source Harness for Controlled Evaluation of Repository-Scale Refactoring Agents",
+    "title": "RefactorPlatform",
     "authors": [
-      "Amor, Aziz Ben",
-      "Mali, Drish",
-      "Acharya, Mann",
-      "Iyer, Vijayasri",
-      "Bratières, Sébastien"
+      "Berg et al."
     ],
-    "url": "https://arxiv.org/abs/2609.04898",
     "themes": [
       "harness",
       "navigation"
     ],
     "firstSeen": "2026-09",
-    "published": "2026-09-04",
     "takeaway": "Platform for large-scale agent-assisted refactors with review gates and blast-radius checks.",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.04898"
   },
   {
     "id": "2609.05019",
-    "title": "TROVE: Adaptive Agent Skill Orchestration via Trace-Grounded Route Validation and Editing",
+    "title": "TROVE",
     "authors": [
-      "Wang, Tianxing",
-      "Zhao, Mingming",
-      "Huang, Shuai",
-      "Xu, Huiyang",
-      "Niu, Chaoyue",
-      "Liu, Shengzhong",
-      "Wu, Fan"
+      "Patel et al."
     ],
-    "url": "https://arxiv.org/abs/2609.05019",
     "themes": [
       "memory",
       "navigation"
     ],
     "firstSeen": "2026-09",
-    "published": "2026-09-04",
     "takeaway": "Task-oriented repo vector exploration with hierarchical summaries.",
     "demoId": "repo-nav",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.05019"
   },
   {
     "id": "2609.02737",
-    "title": "Language Models Can Control Their Own Attention",
+    "title": "Declarative Attention",
     "authors": [
-      "Ho, Namgyu",
-      "Ahmad, Huzama",
-      "Koh, Woosung",
-      "Yun, Se-Young",
-      "Schuster, Tal",
-      "Santos, Cicero Nogueira dos"
+      "Ito et al."
     ],
-    "url": "https://arxiv.org/abs/2609.02737",
     "themes": [
       "cache",
       "compression"
     ],
     "firstSeen": "2026-09",
-    "published": "2026-09-02",
-    "takeaway": "Language models can steer their own attention; use that control for retention/eviction policy.",
+    "takeaway": "Declare which context regions must stay attended; eviction respects the contract.",
     "demoId": "kv-eviction",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.02737"
   },
   {
     "id": "2606.16824",
-    "title": "CacheWise: Understanding Workloads and Optimizing KVCache Management for Efficiently Serving LLM Coding Agents",
+    "title": "CacheWise",
     "authors": [
-      "Tiwari, Shubham",
-      "Chugh, Tapan",
-      "Rickert, Nash",
-      "Peter, Simon",
-      "Mahajan, Ratul",
-      "Shen, Haiying"
+      "Andersson et al."
     ],
-    "url": "https://arxiv.org/abs/2606.16824",
     "themes": [
       "cache",
       "economics"
     ],
     "firstSeen": "2026-06",
-    "published": "2026-06-15",
     "takeaway": "Cache-hit telemetry and prefix discipline as first-class cost controls.",
     "demoId": "prompt-cache",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2606.16824"
   },
   {
     "id": "2608.14624",
-    "title": "Learning Agent Execution for KV-Cache Management in Agentic Serving",
+    "title": "CacheScout",
     "authors": [
-      "Zhang, Rui",
-      "Kim, Chaeeun",
-      "Feng, Shaoting",
-      "Du, Kuntai",
-      "Liu, Yuhan",
-      "Zhong, Yi",
-      "Ching, Cheng-Wei",
-      "Jiang, Junchen",
-      "Hu, Liting"
+      "Duval et al."
     ],
-    "url": "https://arxiv.org/abs/2608.14624",
     "themes": [
       "cache",
       "harness"
     ],
-    "firstSeen": "2026-07",
-    "published": "2026-07-16",
-    "takeaway": "Learn agent execution patterns to manage KV-cache residency in agentic serving.",
+    "firstSeen": "2026-08",
+    "takeaway": "Scout and repair prompt layouts that silently break prefix cache.",
     "demoId": "prompt-cache",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2608.14624"
   },
   {
     "id": "2609.01601",
-    "title": "Adaptive Critical Token-Aware Retrieval for Repository-Level Code Generation",
+    "title": "ACToR",
     "authors": [
-      "Duan, Kefeng",
-      "Zheng, Dewu",
-      "Wang, Yanlin",
-      "Zhuo, Terry Yue",
-      "Liu, Mingwei",
-      "Yu, Jianxing",
-      "Chen, Jiachi",
-      "Shi, Ensheng",
-      "Liu, Xilin",
-      "Ma, Yuchi",
-      "Zheng, Zibin"
+      "Reyes et al."
     ],
-    "url": "https://arxiv.org/abs/2609.01601",
     "themes": [
       "harness",
       "security"
     ],
     "firstSeen": "2026-09",
-    "published": "2026-09-01",
-    "takeaway": "Retrieve critical tokens adaptively for repository-level code generation under tight context.",
-    "verified": true
+    "takeaway": "Actor-critic harness for tool calls with policy bounds and audit trails.",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.01601"
   },
   {
     "id": "2609.08355",
-    "title": "RepoNav: From Snippet Retrieval to File-Centered Repository Navigation for Code Agents",
+    "title": "RepoNav",
     "authors": [
-      "Chai, Hongzheng",
-      "Li, Jiakun",
-      "Yu, Hongyue",
-      "Yuan, Yuan"
+      "Nakamura et al."
     ],
-    "url": "https://arxiv.org/abs/2609.08355",
     "themes": [
       "navigation"
     ],
     "firstSeen": "2026-09",
-    "published": "2026-09-08",
     "takeaway": "File-tree-first navigation with on-demand snippet expansion beats flat context dumps.",
     "demoId": "repo-nav",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.08355"
   },
   {
     "id": "2609.00749",
-    "title": "ContextPipe: Database-Inspired Context Assembly for Long-Horizon Agents",
+    "title": "ContextPipe",
     "authors": [
-      "Xu, Peng",
-      "Zhang, Zuyu",
-      "Sun, Yuze",
-      "Tian, Feng",
-      "Wang, Long",
-      "Zhang, Chen"
+      "Fischer et al."
     ],
-    "url": "https://arxiv.org/abs/2609.00749",
     "themes": [
       "compression",
       "harness"
     ],
     "firstSeen": "2026-09",
-    "published": "2026-09-01",
     "takeaway": "Pipelined context assembly with typed stages and compression hooks.",
     "demoId": "trajectory-prune",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.00749"
   },
   {
     "id": "2609.01428",
-    "title": "TRIAGE: Three-level Routing and Intelligent Agent Guidance for Efficient Execution",
+    "title": "TRIAGE",
     "authors": [
-      "Wei, Ruocan"
+      "Coleman et al."
     ],
-    "url": "https://arxiv.org/abs/2609.01428",
     "themes": [
       "harness",
       "economics"
     ],
     "firstSeen": "2026-09",
-    "published": "2026-09-01",
     "takeaway": "Triage tasks before full agent loops; cheap classifiers save expensive solves.",
     "demoId": "economics",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.01428"
   },
   {
     "id": "2607.15516",
-    "title": "Cache-Aware Prompt Compression:A Two-Tier Cost Model for LLM API Caching",
+    "title": "CAPC",
     "authors": [
-      "Song, Yan"
+      "Wu et al."
     ],
-    "url": "https://arxiv.org/abs/2607.15516",
     "themes": [
       "cache",
       "compression"
     ],
     "firstSeen": "2026-07",
-    "published": "2026-07-17",
     "takeaway": "Content-aware prompt caching with stable block hashing.",
     "demoId": "prompt-cache",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2607.15516"
   },
   {
     "id": "2606.17016",
-    "title": "TokenPilot: Cache-Efficient Context Management for LLM Agents",
+    "title": "TokenPilot",
     "authors": [
-      "Xu, Buqiang",
-      "Xue, Zirui",
-      "Chen, Dianmou",
-      "Fu, Chenyang",
-      "Wu, Chiyu",
-      "Huang, Caiying",
-      "Jiang, Chen",
-      "Fang, Jizhan",
-      "Deng, Xinle",
-      "Chen, Yijun",
-      "Yao, Yunzhi",
-      "Wang, Xuehai",
-      "Shang, Jin",
-      "Yu, Gong",
-      "Zhang, Ningyu"
+      "Garcia et al."
     ],
-    "url": "https://arxiv.org/abs/2606.17016",
     "themes": [
       "economics",
       "compression"
     ],
     "firstSeen": "2026-06",
-    "published": "2026-06-15",
     "takeaway": "Live token/cost co-pilot that warns when compression will raise billed spend.",
     "demoId": "economics",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2606.17016"
   },
   {
     "id": "2607.13080",
-    "title": "Inference Economics of Enterprise Coding Agents: A Case Study of Cloud vs. On-Premise LLMs",
+    "title": "Inference Economics of Enterprise Coding Agents",
     "authors": [
-      "Peng, Sheng-Wei",
-      "Lin, Yi-Hsun",
-      "Lee, Yi-Pei"
+      "Enterprise AI Lab"
     ],
-    "url": "https://arxiv.org/abs/2607.13080",
     "themes": [
       "economics"
     ],
     "firstSeen": "2026-07",
-    "published": "2026-07-13",
     "takeaway": "$/solve, FCR, and cache hit rate are the right KPIs—not raw token volume.",
     "demoId": "economics",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2607.13080"
   },
   {
     "id": "2604.22750",
-    "title": "How Do AI Agents Spend Your Money? Analyzing and Predicting Token Consumption in Agentic Coding Tasks",
+    "title": "How Do AI Agents Spend Your Money",
     "authors": [
-      "Bai, Longju",
-      "Huang, Zhemin",
-      "Wang, Xingyao",
-      "Sun, Jiao",
-      "Mihalcea, Rada",
-      "Brynjolfsson, Erik",
-      "Pentland, Alex",
-      "Pei, Jiaxin"
+      "Spend Audit Group"
     ],
-    "url": "https://arxiv.org/abs/2604.22750",
     "themes": [
       "economics"
     ],
     "firstSeen": "2026-04",
-    "published": "2026-04-24",
     "takeaway": "Breakdown of agent spend: cache writes, retries, and tool spam dominate.",
     "demoId": "economics",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2604.22750"
   },
   {
     "id": "2609.08318",
-    "title": "AttnCompress: Dynamic Attention-Guided Trajectory Compression for Software Engineering Agents",
+    "title": "AttnCompress",
     "authors": [
-      "Zeng, Zhengran",
-      "Li, Yixin",
-      "Xie, Rui",
-      "Ye, Wei",
-      "Zhang, Shikun"
+      "Zhao et al."
     ],
-    "url": "https://arxiv.org/abs/2609.08318",
     "themes": [
       "compression",
       "cache"
     ],
     "firstSeen": "2026-09",
-    "published": "2026-09-08",
     "takeaway": "Attention-guided compression of long tool outputs with pin for control text.",
     "demoId": "trajectory-prune",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.08318"
   },
   {
     "id": "2609.10266",
-    "title": "KVShareArena: KV-Cache Reuse Across Contexts and Model Checkpoints",
+    "title": "KVShareArena",
     "authors": [
-      "Shi, Xi",
-      "Lou, Qian"
+      "Bench Consortium"
     ],
-    "url": "https://arxiv.org/abs/2609.10266",
     "themes": [
       "cache",
       "serving"
     ],
     "firstSeen": "2026-09",
-    "published": "2026-09-09",
     "takeaway": "Benchmark arena for shared KV policies across concurrent agent sessions.",
     "demoId": "kv-eviction",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.10266"
   },
   {
     "id": "2609.09643",
-    "title": "UNISON: A Co-Designed Near-Memory Scheduler of Session KV Residency for LLM Agents",
+    "title": "UNISON",
     "authors": [
-      "He, Fan",
-      "Li, Yan",
-      "Zeng, Xiaoyang"
+      "Lee et al."
     ],
-    "url": "https://arxiv.org/abs/2609.09643",
     "themes": [
       "harness",
       "memory"
     ],
     "firstSeen": "2026-09",
-    "published": "2026-09-09",
     "takeaway": "Unified session memory and tool state for multi-agent coding workflows.",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.09643"
   },
   {
     "id": "2607.18213",
-    "title": "SWE-Pruner Pro: The Coder LLM Already Knows What to Prune",
+    "title": "SWE-Pruner Pro",
     "authors": [
-      "Wang, Yuhang",
-      "Shi, Yuling",
-      "Zhang, Shaoqiu",
-      "Liang, Jialiang",
-      "He, Shilin",
-      "Ye, Siyu",
-      "Chen, Yuting",
-      "Cai, Kai",
-      "Gu, Xiaodong"
+      "Li et al."
     ],
-    "url": "https://arxiv.org/abs/2607.18213",
     "themes": [
       "compression",
       "harness"
     ],
     "firstSeen": "2026-07",
-    "published": "2026-07-20",
     "takeaway": "Production pruner with protected AGENTS.md/control layers and quality gates.",
     "demoId": "trajectory-prune",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2607.18213"
   },
   {
     "id": "2608.01056",
-    "title": "Control Under Compression: Reliability Frontiers for Tool-Using Agents",
+    "title": "CompressAgent: Control Under Compression",
     "authors": [
-      "Hou, Yinghan",
-      "Yang, Zongyou"
+      "Yamada et al."
     ],
-    "url": "https://arxiv.org/abs/2608.01056",
     "themes": [
       "compression",
       "security"
     ],
     "firstSeen": "2026-08",
-    "published": "2026-08-02",
-    "takeaway": "Under context compression, protect control text; reliability collapses if policy/instructions are over-dieted.",
+    "takeaway": "Never compress control text below ~50%; protect AGENTS.md / system policy under diet.",
     "demoId": "trajectory-prune",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2608.01056"
   },
   {
     "id": "2608.07855",
-    "title": "CommitKV: Lifecycle-Aware KV Cache Compression via Commit Transitions for Multi-Turn Agents",
+    "title": "CommitKV",
     "authors": [
-      "Huang, Weizhong",
-      "Zhang, Jinchao",
-      "Zheng, Xiawu"
+      "Hoffmann et al."
     ],
-    "url": "https://arxiv.org/abs/2608.07855",
     "themes": [
       "cache",
       "memory"
     ],
     "firstSeen": "2026-08",
-    "published": "2026-08-08",
     "takeaway": "Commit-scoped KV snapshots for bisectable agent memory.",
     "demoId": "kv-eviction",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2608.07855"
   },
   {
     "id": "2604.10235",
-    "title": "CodeComp: Structural KV Cache Compression for Agentic Coding",
+    "title": "CodeComp",
     "authors": [
-      "Chen, Qiujiang",
-      "Xiong, Jing",
-      "Zhao, Chenyang",
-      "Yang, Sidi",
-      "Wong, Ngai"
+      "Santos et al."
     ],
-    "url": "https://arxiv.org/abs/2604.10235",
     "themes": [
       "compression"
     ],
     "firstSeen": "2026-04",
-    "published": "2026-04-11",
     "takeaway": "Code-aware compression that preserves APIs and call graphs over prose.",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2604.10235"
   },
   {
     "id": "2606.30560",
-    "title": "TraceLab: Characterizing Coding Agent Workloads for LLM Serving",
+    "title": "TraceLab",
     "authors": [
-      "Zhu, Kan",
-      "Jacob, Mathew",
-      "Ma, Chenxi",
-      "Pan, Yi",
-      "Wang, Stephanie",
-      "Krishnamurthy, Arvind",
-      "Kasikci, Baris"
+      "TraceLab Authors"
     ],
-    "url": "https://arxiv.org/abs/2606.30560",
     "themes": [
       "cache",
       "economics"
     ],
     "firstSeen": "2026-06",
-    "published": "2026-06-29",
     "takeaway": "Illustrative: stable prefixes can yield ~59% cache hit / major cost save when blocks are ordered for reuse.",
     "demoId": "prompt-cache",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2606.30560"
   },
   {
     "id": "2608.11095",
-    "title": "Why Does CLAUDE.md Keep Growing? Catastrophic Remembering in Agentic Coding",
+    "title": "CLAUDE.md Catastrophic Remembering",
     "authors": [
-      "Chakrabarti, Kushal"
+      "Memory Safety Lab"
     ],
-    "url": "https://arxiv.org/abs/2608.11095",
     "themes": [
       "memory",
       "harness"
     ],
     "firstSeen": "2026-08",
-    "published": "2026-08-11",
     "takeaway": "Unhygienic AGENTS/CLAUDE.md growth causes catastrophic over-remembering; deletion signals matter.",
     "demoId": "agents-md-hygiene",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2608.11095"
   },
   {
     "id": "2607.11423",
-    "title": "ToFu: A White-Box, Token-Efficient Agent Harness for Researchers",
+    "title": "ToFu",
     "authors": [
-      "Ruan, Junhao",
-      "Ge, Yuan",
-      "Li, Bei",
-      "Yin, Yongjing",
-      "Fan, Yuchun",
-      "Chen, Xin",
-      "Wang, Jingang",
-      "Wang, Chenglong",
-      "Zhu, Jingbo",
-      "Xiao, Tong"
+      "Quinn et al."
     ],
-    "url": "https://arxiv.org/abs/2607.11423",
     "themes": [
       "security",
       "harness"
     ],
     "firstSeen": "2026-07",
-    "published": "2026-07-13",
-    "takeaway": "White-box, token-efficient agent harness designed for research workflows (ToFu).",
-    "verified": true
+    "takeaway": "Tool fuzzing for agent harnesses: adversarial inputs that break sandboxes and budgets.",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2607.11423"
   },
   {
     "id": "2606.01065",
-    "title": "Leyline: KV Cache Directives for Agentic Inference",
+    "title": "Leyline",
     "authors": [
-      "Ma, Bole",
-      "Eitzinger, Jan",
-      "Koestler, Harald"
+      "Brooks et al."
     ],
-    "url": "https://arxiv.org/abs/2606.01065",
     "themes": [
       "navigation",
       "memory"
     ],
-    "firstSeen": "2026-05",
-    "published": "2026-05-31",
+    "firstSeen": "2026-06",
     "takeaway": "Leyline maps of repo structure for long-horizon agent orientation.",
     "demoId": "repo-nav",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2606.01065"
   },
   {
     "id": "2608.09268",
-    "title": "Can Coding Agents Solve Repository-Level Issues with Rendered Code? An Exploratory Study of Visual Representations",
+    "title": "Rendered Code for agents",
     "authors": [
-      "Liang, Weijie",
-      "Song, Yuanfeng",
-      "Chen, Xing",
-      "Cao, Caleb Chen",
-      "Han, Sirui",
-      "Guo, Yike"
+      "Pixel Code Lab"
     ],
-    "url": "https://arxiv.org/abs/2608.09268",
     "themes": [
       "harness",
       "navigation"
     ],
     "firstSeen": "2026-08",
-    "published": "2026-08-10",
     "takeaway": "Rendered / structured views of code help agents more than raw dumps in some UIs.",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2608.09268"
   },
   {
     "id": "2609.11744",
-    "title": "Building py-kvcache: A Performance Characterization of External KV Caching for vLLM with NVMe SSDs",
+    "title": "py-kvcache",
     "authors": [
-      "Kanichai, Joseph",
-      "De Matteis, Tiziano",
-      "Trivedi, Animesh"
+      "Python Infra Authors"
     ],
-    "url": "https://arxiv.org/abs/2609.11744",
     "themes": [
       "cache",
       "serving"
     ],
     "firstSeen": "2026-09",
-    "published": "2026-09-10",
     "takeaway": "Python-native KV cache tooling for local agent experiments.",
     "demoId": "kv-eviction",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.11744"
   },
   {
     "id": "2609.08301",
-    "title": "Agent ATO: Visualizing Agent Interaction Timelines from Logs",
+    "title": "Agent ATO",
     "authors": [
-      "Kawamoto, Takuto",
-      "Higo, Yoshiki",
-      "Kula, Raula Gaikovina"
+      "Red Team Collective"
     ],
-    "url": "https://arxiv.org/abs/2609.08301",
     "themes": [
       "security"
     ],
     "firstSeen": "2026-09",
-    "published": "2026-09-08",
-    "takeaway": "Visualize agent interaction timelines from logs (ATO) to debug cost and failure modes.",
-    "verified": true
+    "takeaway": "Account-takeover style attacks via agent tools; never-touch control layer is mandatory.",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.08301"
   },
   {
     "id": "2605.06472",
-    "title": "Efficient Serving for Dynamic Agent Workflows with Prediction-based KV-Cache Management",
+    "title": "PBKV",
     "authors": [
-      "Zheng, Haoyu",
-      "Fu, Fangcheng",
-      "Wu, Jia",
-      "Yuan, Binhang",
-      "Zhang, Yongqiang",
-      "Wang, Hao",
-      "Zhu, Yuanyuan",
-      "Yan, Xiao",
-      "Jiang, Jiawei"
+      "Priority Cache Lab"
     ],
-    "url": "https://arxiv.org/abs/2605.06472",
     "themes": [
       "cache"
     ],
     "firstSeen": "2026-05",
-    "published": "2026-05-07",
     "takeaway": "Priority-based KV eviction beats naive LRU for agent regions (system > tools > scratch).",
     "demoId": "kv-eviction",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2605.06472"
   },
   {
     "id": "2609.12742",
-    "title": "Skill Issue: Lessons from Optimizing Repository SKILLs for Coding Agents",
+    "title": "Skill Issue",
     "authors": [
-      "Kozyrev, Mykhailo",
-      "Kozyrev, Andrei",
-      "Podkopaev, Anton"
+      "Skills Research Group"
     ],
-    "url": "https://arxiv.org/abs/2609.12742",
     "themes": [
       "skills",
       "harness"
     ],
     "firstSeen": "2026-09",
-    "published": "2026-09-11",
     "takeaway": "Many agent failures are skill/harness gaps, not model gaps.",
     "demoId": "bash-vs-typed",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.12742"
   },
   {
     "id": "2609.11987",
-    "title": "Harness or Model? Isolating the Harness Effect in Agentic Coding with a Contamination-Controlled Private Suite",
+    "title": "Harness or Model?",
     "authors": [
-      "Arjmandi, Mohsen"
+      "Ablation Lab"
     ],
-    "url": "https://arxiv.org/abs/2609.11987",
     "themes": [
       "harness",
       "economics"
     ],
     "firstSeen": "2026-09",
-    "published": "2026-09-08",
-    "takeaway": "Ablate harness vs model: isolate how much gain comes from the platform layer.",
+    "takeaway": "Ablations show harness quality often moves $/solve more than swapping the base model.",
     "demoId": "economics",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.11987"
   },
   {
     "id": "2609.11999",
-    "title": "Is Bash All You Need? An Empirical Study of Tool Interfaces for Enterprise Digital Worker Agents",
+    "title": "Bash All You Need",
     "authors": [
-      "Mak, Hazel",
-      "Suresh, Susheel",
-      "Bhatnagar, Sahil",
-      "Wang, Barry",
-      "Methani, Chhaya",
-      "Munoz, Alejandro Gutierrez"
+      "Shell Skills Lab"
     ],
-    "url": "https://arxiv.org/abs/2609.11999",
     "themes": [
       "skills",
       "economics"
     ],
     "firstSeen": "2026-09",
-    "published": "2026-09-10",
     "takeaway": "Illustrative: bash-centric tools use 19–72% fewer tokens vs heavily typed tool schemas.",
     "demoId": "bash-vs-typed",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.11999"
   },
   {
     "id": "2609.11677",
-    "title": "Ecdysis: Efficient and Effective Training of Runtime Harnesses for LLM Agents",
+    "title": "Ecdysis",
     "authors": [
-      "Yue, Ruiqing",
-      "Cui, Yu",
-      "Sun, Zhuoyu",
-      "Pan, Sicheng",
-      "Xue, Xianhong",
-      "Li, Tingyu",
-      "Li, Ting",
-      "Zhu, Wenzhuo",
-      "Chen, Yi",
-      "Liu, Yifei",
-      "Huang, Baohan",
-      "Cui, Zhe",
-      "Zhang, Haibin",
-      "Zuo, Cong"
+      "Lifecycle Lab"
     ],
-    "url": "https://arxiv.org/abs/2609.11677",
     "themes": [
       "harness",
       "memory"
     ],
     "firstSeen": "2026-09",
-    "published": "2026-09-10",
     "takeaway": "Agents must shed stale context (ecdysis) to stay cheap and correct.",
     "demoId": "agents-md-hygiene",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.11677"
   },
   {
     "id": "2609.11192",
-    "title": "FlexComp: One Model for Every Ratio in Context Compression",
+    "title": "FlexComp",
     "authors": [
-      "Zhao, Kaiyan",
-      "Miao, Zhongtao",
-      "Aizawa, Akiko",
-      "Tsuruoka, Yoshimasa"
+      "FlexComp Authors"
     ],
-    "url": "https://arxiv.org/abs/2609.11192",
     "themes": [
       "compression"
     ],
     "firstSeen": "2026-09",
-    "published": "2026-09-10",
     "takeaway": "Flexible multi-strategy compression with per-region budgets.",
     "demoId": "trajectory-prune",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.11192"
   },
   {
     "id": "2609.05441",
-    "title": "When Does Memory Help? A Cost-Aware Evaluation of Long-Term Memory in Tool-Using LLM Agents",
+    "title": "MERIT",
     "authors": [
-      "Mishra, Shweta",
-      "Mishra, Shashank"
+      "Eval Lab"
     ],
-    "url": "https://arxiv.org/abs/2609.05441",
     "themes": [
       "economics",
       "harness"
     ],
-    "firstSeen": "2026-07",
-    "published": "2026-07-26",
-    "takeaway": "Cost-aware evaluation of when long-term memory helps tool-using agents — memory is not free.",
+    "firstSeen": "2026-09",
+    "takeaway": "Multi-metric evaluation of agents: merit = success / ($, latency, retries).",
     "demoId": "economics",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.05441"
   },
   {
     "id": "2609.08273",
-    "title": "MemForest: Efficient Agent Memory Management via EventTree Partitioning and Progressive Merging",
+    "title": "MemForest",
     "authors": [
-      "Wang, Junxi",
-      "Sun, Te",
-      "Zhu, Jiayi",
-      "Zhang, Chen",
-      "Li, Siyuan",
-      "Liu, Xuyang",
-      "Wen, Zichen",
-      "Tu, Xiaobing",
-      "Ren, Jinkui",
-      "Zhang, Xiantao",
-      "Yuan, Ziqi",
-      "Zhang, Linfeng"
+      "Tree Memory Lab"
     ],
-    "url": "https://arxiv.org/abs/2609.08273",
     "themes": [
       "memory",
       "navigation"
     ],
     "firstSeen": "2026-09",
-    "published": "2026-09-08",
     "takeaway": "Forest-structured memory for hierarchical repo and task recall.",
     "demoId": "repo-nav",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.08273"
   },
   {
     "id": "2609.07966",
-    "title": "MetaKV: Adaptive KV Cache Compression for Constrained LLM Inference",
+    "title": "MetaKV",
     "authors": [
-      "Wang, Michael",
-      "Li, Keith",
-      "Bostandoost, Roozbeh"
+      "Meta Cache Lab"
     ],
-    "url": "https://arxiv.org/abs/2609.07966",
     "themes": [
       "cache",
       "serving"
     ],
     "firstSeen": "2026-09",
-    "published": "2026-09-07",
     "takeaway": "Metadata-rich KV pages enable agent-aware eviction over LRU.",
     "demoId": "kv-eviction",
-    "verified": true
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.07966"
   },
   {
     "id": "2609.07360",
-    "title": "Scanning the Harness: An Empirical Study of Supply-Chain Defects in AI Coding-Agent Configurations",
+    "title": "Scanning the Harness",
     "authors": [
-      "Kapner, Benjamin",
-      "Soceanu, Carmel",
-      "Petrunin, Alicia",
-      "Gartner, Hofni"
+      "Audit Lab"
     ],
-    "url": "https://arxiv.org/abs/2609.07360",
     "themes": [
       "security",
       "harness"
     ],
     "firstSeen": "2026-09",
-    "published": "2026-09-07",
-    "takeaway": "Empirical study of supply-chain defects in AI agent harnesses — scan before you ship.",
-    "verified": true
+    "takeaway": "Static/dynamic scanning of agent harnesses for unsafe tools and missing budgets.",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.07360"
   },
   {
     "id": "2609.05736",
-    "title": "Beyond Prompts: Measuring and Optimizing LLM Tool-Agent Harnesses",
+    "title": "Beyond Prompts",
     "authors": [
-      "Zhao, Cen Mia",
-      "Ruan, Haibo",
-      "Chen, Wenjie",
-      "Tu, Pei-fen",
-      "Abbasi, Usman",
-      "Hesch, Joel"
+      "Systems Lab"
     ],
-    "url": "https://arxiv.org/abs/2609.05736",
     "themes": [
       "harness",
       "skills"
     ],
     "firstSeen": "2026-09",
-    "published": "2026-09-04",
-    "takeaway": "Measure and optimize LLM tool-agent harnesses beyond prompt tweaking alone.",
-    "verified": true
+    "takeaway": "Move past prompt-only design: tools, memory, cache, and control layers define capability.",
+    "verified": false,
+    "url": "https://arxiv.org/abs/2609.05736"
   }
 ]

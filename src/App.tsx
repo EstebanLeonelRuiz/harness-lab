@@ -6,6 +6,7 @@ import { Pipeline } from './pages/Pipeline'
 import { Demos } from './pages/Demos'
 import { DemoDetail } from './pages/DemoDetail'
 import { Catalog } from './pages/Catalog'
+import { Audit } from './pages/Audit'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="lab" element={<Lab />} />
+          <Route path="audit" element={<Audit />} />
           <Route path="pipeline" element={<Pipeline />} />
           <Route path="demos" element={<Demos />} />
           <Route path="demos/:demoId" element={<DemoDetail />} />
