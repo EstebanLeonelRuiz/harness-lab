@@ -1,6 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { Layout } from './components/Layout'
 import { Home } from './pages/Home'
+import { Lab } from './pages/Lab'
 import { Pipeline } from './pages/Pipeline'
 import { Demos } from './pages/Demos'
 import { DemoDetail } from './pages/DemoDetail'
@@ -12,6 +13,7 @@ export default function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path="lab" element={<Lab />} />
           <Route path="pipeline" element={<Pipeline />} />
           <Route path="demos" element={<Demos />} />
           <Route path="demos/:demoId" element={<DemoDetail />} />

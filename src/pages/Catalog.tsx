@@ -69,7 +69,8 @@ export function Catalog() {
               <th className="px-3 py-2">Title</th>
               <th className="px-3 py-2">Themes</th>
               <th className="px-3 py-2">Demo</th>
-              <th className="px-3 py-2">Seen</th>
+              <th className="px-3 py-2">Published</th>
+              <th className="px-3 py-2">OK</th>
             </tr>
           </thead>
           <tbody>
@@ -101,7 +102,8 @@ export function Catalog() {
                     <span className="text-muted">—</span>
                   )}
                 </td>
-                <td className="px-3 py-2 font-mono text-xs text-muted">{p.firstSeen}</td>
+                <td className="px-3 py-2 font-mono text-xs text-muted">{p.published ?? p.firstSeen}</td>
+                <td className="px-3 py-2 text-xs">{p.verified ? <span className="text-ok">✓</span> : <span className="text-warn">?</span>}</td>
               </tr>
             ))}
           </tbody>
