@@ -1,0 +1,6 @@
+numpy>=1.26
+# Sólo para el modo video real (YOLO-pose + ByteTrack). Instala PyTorch (~varios GB):
+# ultralytics>=8.3
+# lap
+# opencv-python
+pytest

@@ -1,0 +1,162 @@
+{
+ "yolo11n-pose": {
+  "por_altura_px": {
+   "400": {
+    "personas": 17,
+    "deteccion": 1.0,
+    "error_kpt_%altura": 0.8,
+    "pck@5%": 0.96,
+    "conf_media": 0.92,
+    "error_angulo_deg_mediana": 4.1,
+    "error_angulo_deg_p90": 12.8
+   },
+   "250": {
+    "personas": 17,
+    "deteccion": 1.0,
+    "error_kpt_%altura": 1.4,
+    "pck@5%": 0.93,
+    "conf_media": 0.89,
+    "error_angulo_deg_mediana": 4.1,
+    "error_angulo_deg_p90": 22.4
+   },
+   "160": {
+    "personas": 17,
+    "deteccion": 1.0,
+    "error_kpt_%altura": 1.7,
+    "pck@5%": 0.87,
+    "conf_media": 0.85,
+    "error_angulo_deg_mediana": 5.2,
+    "error_angulo_deg_p90": 29.5
+   },
+   "120": {
+    "personas": 17,
+    "deteccion": 1.0,
+    "error_kpt_%altura": 2.2,
+    "pck@5%": 0.85,
+    "conf_media": 0.86,
+    "error_angulo_deg_mediana": 10.5,
+    "error_angulo_deg_p90": 41.7
+   },
+   "90": {
+    "personas": 17,
+    "deteccion": 1.0,
+    "error_kpt_%altura": 2.5,
+    "pck@5%": 0.79,
+    "conf_media": 0.85,
+    "error_angulo_deg_mediana": 8.9,
+    "error_angulo_deg_p90": 55.5
+   },
+   "70": {
+    "personas": 17,
+    "deteccion": 0.88,
+    "error_kpt_%altura": 3.5,
+    "pck@5%": 0.7,
+    "conf_media": 0.85,
+    "error_angulo_deg_mediana": 14.8,
+    "error_angulo_deg_p90": 83.7
+   },
+   "50": {
+    "personas": 17,
+    "deteccion": 0.29,
+    "error_kpt_%altura": 6.1,
+    "pck@5%": 0.44,
+    "conf_media": 0.79,
+    "error_angulo_deg_mediana": 14.8,
+    "error_angulo_deg_p90": 56.3
+   },
+   "35": {
+    "personas": 17,
+    "deteccion": 0.0,
+    "error_kpt_%altura": null,
+    "pck@5%": null,
+    "conf_media": null,
+    "error_angulo_deg_mediana": null,
+    "error_angulo_deg_p90": null
+   }
+  },
+  "ms_por_frame_cpu": {
+   "1280": 79,
+   "1920": 187
+  }
+ },
+ "yolo11m-pose": {
+  "por_altura_px": {
+   "400": {
+    "personas": 15,
+    "deteccion": 1.0,
+    "error_kpt_%altura": 0.6,
+    "pck@5%": 0.99,
+    "conf_media": 0.91,
+    "error_angulo_deg_mediana": 3.3,
+    "error_angulo_deg_p90": 9.4
+   },
+   "250": {
+    "personas": 16,
+    "deteccion": 1.0,
+    "error_kpt_%altura": 0.9,
+    "pck@5%": 0.97,
+    "conf_media": 0.9,
+    "error_angulo_deg_mediana": 3.3,
+    "error_angulo_deg_p90": 16.9
+   },
+   "160": {
+    "personas": 16,
+    "deteccion": 1.0,
+    "error_kpt_%altura": 1.1,
+    "pck@5%": 0.95,
+    "conf_media": 0.9,
+    "error_angulo_deg_mediana": 6.4,
+    "error_angulo_deg_p90": 26.3
+   },
+   "120": {
+    "personas": 16,
+    "deteccion": 1.0,
+    "error_kpt_%altura": 1.5,
+    "pck@5%": 0.96,
+    "conf_media": 0.88,
+    "error_angulo_deg_mediana": 5.7,
+    "error_angulo_deg_p90": 51.2
+   },
+   "90": {
+    "personas": 16,
+    "deteccion": 1.0,
+    "error_kpt_%altura": 1.5,
+    "pck@5%": 0.9,
+    "conf_media": 0.89,
+    "error_angulo_deg_mediana": 7.1,
+    "error_angulo_deg_p90": 21.6
+   },
+   "70": {
+    "personas": 16,
+    "deteccion": 1.0,
+    "error_kpt_%altura": 2.3,
+    "pck@5%": 0.85,
+    "conf_media": 0.87,
+    "error_angulo_deg_mediana": 8.9,
+    "error_angulo_deg_p90": 44.1
+   },
+   "50": {
+    "personas": 16,
+    "deteccion": 1.0,
+    "error_kpt_%altura": 2.9,
+    "pck@5%": 0.79,
+    "conf_media": 0.87,
+    "error_angulo_deg_mediana": 14.4,
+    "error_angulo_deg_p90": 61.2
+   },
+   "35": {
+    "personas": 16,
+    "deteccion": 1.0,
+    "error_kpt_%altura": 5.1,
+    "pck@5%": 0.49,
+    "conf_media": 0.82,
+    "error_angulo_deg_mediana": 15.4,
+    "error_angulo_deg_p90": 93.4
+   }
+  },
+  "ms_por_frame_cpu": {
+   "1280": 532,
+   "1920": 1264
+  }
+ }
+}

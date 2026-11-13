@@ -1,0 +1,131 @@
+{
+ "nota": "Clase sintética: 15 alumnos, 2 rondas de circuito (~12 min), 15 fps, cámara en un lado del área. error x1.0 = modelo de error de keypoints pesimista; x0.5 ~ medido con YOLO11m-pose real en imágenes estáticas.",
+ "escenarios": {
+  "4K, error x1.0, seed 7": {
+   "reps_f1": 0.979,
+   "reps_precision": 0.998,
+   "reps_recall": 0.961,
+   "rom_acierto": 0.995,
+   "f1_por_fila_cerca_medio_lejos": [
+    0.975,
+    0.979,
+    0.982
+   ],
+   "defectos_detectados": "7/7",
+   "caida_detectada": true,
+   "falsas_alertas_tecnica": []
+  },
+  "4K, error x0.5, seed 7": {
+   "reps_f1": 0.98,
+   "reps_precision": 0.999,
+   "reps_recall": 0.961,
+   "rom_acierto": 0.993,
+   "f1_por_fila_cerca_medio_lejos": [
+    0.979,
+    0.974,
+    0.987
+   ],
+   "defectos_detectados": "7/7",
+   "caida_detectada": true,
+   "falsas_alertas_tecnica": [
+    "A10:fatiga"
+   ]
+  },
+  "4K, error x1.0, seed 11": {
+   "reps_f1": 0.981,
+   "reps_precision": 0.997,
+   "reps_recall": 0.966,
+   "rom_acierto": 0.997,
+   "f1_por_fila_cerca_medio_lejos": [
+    0.977,
+    0.985,
+    0.981
+   ],
+   "defectos_detectados": "7/7",
+   "caida_detectada": true,
+   "falsas_alertas_tecnica": [
+    "A14:bajada_rapida"
+   ]
+  },
+  "1080p, error x1.0": {
+   "reps_f1": 0.611,
+   "reps_precision": 0.743,
+   "reps_recall": 0.519,
+   "rom_acierto": 0.969,
+   "f1_por_fila_cerca_medio_lejos": [
+    0.974,
+    0.608,
+    0.0
+   ],
+   "defectos_detectados": "4/7",
+   "caida_detectada": false,
+   "falsas_alertas_tecnica": [
+    "A06:asimetria_lateral",
+    "A06:bajada_rapida",
+    "A06:kipping",
+    "A07:bajada_rapida",
+    "A08:asimetria_lateral",
+    "A08:bajada_rapida",
+    "A08:fatiga",
+    "A08:kipping",
+    "A09:bajada_rapida",
+    "A10:asimetria_lateral",
+    "A10:bajada_rapida",
+    "A10:fatiga",
+    "A10:kipping",
+    "A10:valgo_rodilla",
+    "A15:asimetria_lateral",
+    "A15:bajada_rapida",
+    "A15:fatiga"
+   ]
+  },
+  "1080p, error x0.5": {
+   "reps_f1": 0.73,
+   "reps_precision": 0.969,
+   "reps_recall": 0.586,
+   "rom_acierto": 0.971,
+   "f1_por_fila_cerca_medio_lejos": [
+    0.976,
+    0.86,
+    0.0
+   ],
+   "defectos_detectados": "4/7",
+   "caida_detectada": false,
+   "falsas_alertas_tecnica": [
+    "A06:asimetria_lateral",
+    "A06:bajada_rapida",
+    "A06:fatiga",
+    "A06:kipping",
+    "A08:fatiga",
+    "A08:kipping",
+    "A09:fatiga",
+    "A10:asimetria_lateral",
+    "A10:bajada_rapida",
+    "A10:fatiga",
+    "A10:kipping"
+   ]
+  },
+  "720p, error x1.0": {
+   "reps_f1": 0.085,
+   "reps_precision": 0.479,
+   "reps_recall": 0.047,
+   "rom_acierto": 0.914,
+   "f1_por_fila_cerca_medio_lejos": [
+    0.216,
+    0.0,
+    0.0
+   ],
+   "defectos_detectados": "0/7",
+   "caida_detectada": false,
+   "falsas_alertas_tecnica": [
+    "A01:asimetria_lateral",
+    "A01:bajada_rapida",
+    "A01:fatiga",
+    "A01:kipping",
+    "A01:valgo_rodilla",
+    "A03:bajada_rapida",
+    "A05:bajada_rapida"
+   ]
+  }
+ }
+}

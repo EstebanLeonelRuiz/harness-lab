@@ -1,0 +1,7 @@
+{
+  "_comentario": "4 puntos del piso marcados en la imagen (px) y sus coordenadas reales (m). Ej.: las 4 esquinas del área o conos. Valores de ejemplo para una cámara 4K en un lado del área.",
+  "image_points": [[250, 2050], [3590, 2050], [2650, 520], [1190, 520]],
+  "floor_points": [[0, 0], [25, 0], [25, 25], [0, 25]],
+  "image_size": [3840, 2160],
+  "area_m": [25, 25]
+}
